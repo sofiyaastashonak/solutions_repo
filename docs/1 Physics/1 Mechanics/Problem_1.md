@@ -1,9 +1,5 @@
 # Problem 1
-<<<<<<< HEAD
 # Investigating the Range as a Function of the Angle of Projection
-=======
-Investigating the Range as a Function of the Angle of Projection.
->>>>>>> c2e553a74b2bfdf3fe94e9b8e1ad856686a4d6d1
 
 ## 1. Theoretical Background
 
@@ -46,4 +42,3 @@ $$
 This equation shows that the range is dependent on the initial velocity $v_0$, the launch angle $\theta\ $, and the gravitational acceleration $g$. The optimal launch angle for maximum range is 45°, as $\sin(2 \cdot 45^\circ) = 1$.
 
 For various values of the launch angle $\theta\ $, we can plot the trajectory of the projectile and observe how the range and maximum height change with different initial speeds and angles.
-
