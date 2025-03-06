@@ -6,9 +6,7 @@
 To study the motion of a projectile, i start from the basic equations of projectile motion. In the absence of air resistance, the motion of a projectile is determined by the following kinematic equations:
 
 - **Horizontal motion:**
-  $$
-  x(t) = v_0 \cdot \cos(\theta) \cdot t
-  $$
+$$x(t) = v_0 \cdot \cos(\theta) \cdot t$$
   where:
   - $x(t)$ is the horizontal position,
   - $v_0$ is the initial velocity,
@@ -16,9 +14,7 @@ To study the motion of a projectile, i start from the basic equations of project
   - $t$ is the time elapsed.
 
 - **Vertical motion:**
-  $$
-  y(t) = v_0 \cdot \sin(\theta) \cdot t - \frac{1}{2} g \cdot t^2
-  $$
+$$y(t) = v_0 \cdot \sin(\theta) \cdot t - \frac{1}{2} g \cdot t^2$$
   where:
   - $y(t)$ is the vertical position,
   - $g$ is the acceleration due to gravity (approximately $9.81 \, \text{m/s}^2$.
