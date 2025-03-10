@@ -228,22 +228,8 @@ for case in cases:
 ![alt text](image-8.png)
 ---
 
-## 5. Limitations of the Idealized Model   
 
-The model **ignores** some real-world effects, including:  
-- **Air resistance** (nonlinear damping forces like $F \sim v^2$)  
-- **Complex forcing functions** (real-world driving forces may not be purely sinusoidal)  
-- **External perturbations** (random fluctuations in real mechanical systems)  
-
-### **Extending the Model**  
-To make the model more **realistic**, we could:  
-✅ **Include nonlinear damping** ($F \sim v^2$ instead of $\gamma v$)  
-✅ **Introduce non-periodic driving forces** (e.g., noise-driven oscillations)  
-✅ **Consider altitude effects** (changing $g$ in space applications)  
-
----
-
-## 6. Conclusion 
+## 5. Conclusion 
 
 The forced damped pendulum is a **powerful model** for understanding real-world oscillatory systems. By adjusting damping, forcing, and initial conditions, we can explore **periodic, resonant, and chaotic behaviors**. Using **numerical simulations and phase-space analysis**, we can study transitions from simple oscillations to **chaos**, with applications in **engineering, physics, and biomechanics**.
 
