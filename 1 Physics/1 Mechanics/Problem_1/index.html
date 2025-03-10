@@ -174,69 +174,71 @@
 <h1 id="problem-1">Problem 1</h1>
 <h1 id="investigating-the-range-as-a-function-of-the-angle-of-projection">Investigating the Range as a Function of the Angle of Projection</h1>
 <h2 id="1-theoretical-background">1. Theoretical Background</h2>
-<h1 id="theoretical-foundation-of-projectile-motion"><strong>Theoretical Foundation of Projectile Motion</strong></h1>
+<h1 id="understanding-projectile-motion-a-beginner-friendly-guide"><strong>Understanding Projectile Motion: A Beginner-Friendly Guide</strong></h1>
 <h2 id="1-introduction"><strong>1. Introduction</strong></h2>
-<p>Projectile motion is a fundamental topic in classical mechanics that describes the motion of an object under the influence of gravity. This motion can be analyzed by breaking it into two independent components: <strong>horizontal motion</strong> (constant velocity) and <strong>vertical motion</strong> (uniformly accelerated motion). The governing equations of motion can be derived using Newton’s laws.</p>
+<p>Have you ever wondered how a soccer ball follows a curved path when kicked? Or how rockets and missiles follow precise trajectories? This is all because of <strong>projectile motion</strong>!  </p>
+<p>In this report, i will <strong>explore how the range of a projectile depends on the launch angle</strong> and break it down step by step.</p>
 <hr/>
-<h2 id="2-derivation-of-governing-equations"><strong>2. Derivation of Governing Equations</strong></h2>
-<p>To analyze projectile motion, we consider an object launched with an <strong>initial velocity</strong> <span class="arithmatex">\(v_0\)</span> at an <strong>angle of projection</strong> <span class="arithmatex">\(\theta\)</span> from the horizontal. The motion is influenced by gravitational acceleration <span class="arithmatex">\(g\)</span>, assuming air resistance is negligible.</p>
-<h3 id="21-equations-of-motion"><strong>2.1 Equations of Motion</strong></h3>
-<p>Using kinematic equations, we resolve the motion into <strong>horizontal</strong> and <strong>vertical</strong> components:</p>
-<ol>
-<li><strong>Horizontal displacement</strong> <span class="arithmatex">\(x(t)\)</span>:</li>
-</ol>
-<p><span class="arithmatex">\(<span class="arithmatex">\(x=v_0\cos\theta\cdot t\)</span>\)</span></p>
-<ol>
-<li><strong>Vertical displacement</strong> <span class="arithmatex">\(y(t)\)</span>:</li>
-</ol>
-<p><span class="arithmatex">\(<span class="arithmatex">\(y=v_0\sin\theta\cdot t-\frac{1}{2}gt^2\)</span>\)</span></p>
-<ol>
-<li><strong>Horizontal velocity</strong> <span class="arithmatex">\(v_x(t)\)</span>:</li>
-</ol>
-<p><span class="arithmatex">\(<span class="arithmatex">\(v_x=v_0\cos\theta\)</span>\)</span></p>
-<p>(Since there is no acceleration in the horizontal direction, the velocity remains constant.)</p>
-<ol>
-<li><strong>Vertical velocity</strong> <span class="arithmatex">\(v_y(t)\)</span>:</li>
-</ol>
-<p><span class="arithmatex">\(<span class="arithmatex">\(v_y=v_0\sin\theta-gt\)</span>\)</span></p>
-<ol>
-<li><strong>Time of flight</strong> (when the projectile returns to the initial height <span class="arithmatex">\(y=0\)</span>):</li>
-</ol>
-<p><span class="arithmatex">\(<span class="arithmatex">\(t_f=\frac{2v_0\sin\theta}{g}\)</span>\)</span></p>
-<ol>
-<li><strong>Maximum height</strong> (when vertical velocity becomes zero, <span class="arithmatex">\(v_y=0\)</span>):</li>
-</ol>
-<p><span class="arithmatex">\(<span class="arithmatex">\(H=\frac{(v_0\sin\theta)^2}{2g}\)</span>\)</span></p>
-<ol>
-<li><strong>Horizontal range</strong> (total horizontal distance traveled):</li>
-</ol>
-<p><span class="arithmatex">\(<span class="arithmatex">\(R=\frac{v_0^2\sin(2\theta)}{g}\)</span>\)</span></p>
+<h2 id="2-what-is-projectile-motion"><strong>2. What is Projectile Motion?</strong></h2>
+<p>Projectile motion happens when an object is launched into the air and moves under the influence of <strong>gravity</strong>. The motion can be split into two parts:
+- <strong>Horizontal motion</strong>: The object moves forward with a constant speed.
+- <strong>Vertical motion</strong>: The object moves up and down due to gravity.</p>
+<p>To understand projectile motion better, let's derive some important equations.</p>
 <hr/>
-<h2 id="3-effect-of-initial-conditions"><strong>3. Effect of Initial Conditions</strong></h2>
-<h3 id="31-influence-of-launch-angle-theta"><strong>3.1 Influence of Launch Angle <span class="arithmatex">\(\theta\)</span></strong></h3>
-<ul>
-<li>The <strong>horizontal range</strong> is maximized when <span class="arithmatex">\(\theta=45^\circ\)</span>, as <span class="arithmatex">\(\sin(2\theta)\)</span> reaches its maximum at this angle.</li>
-<li>At lower angles, the projectile travels farther horizontally but remains in the air for a shorter duration.</li>
-<li>At higher angles, the projectile reaches greater heights but covers less horizontal distance.</li>
-</ul>
-<h3 id="32-influence-of-initial-velocity-v_0"><strong>3.2 Influence of Initial Velocity <span class="arithmatex">\(v_0\)</span></strong></h3>
-<ul>
-<li>A greater initial velocity increases <strong>both the range and the maximum height</strong>.</li>
-<li>The relationship between range and initial velocity is quadratic: <span class="arithmatex">\(R\propto v_0^2\)</span>.</li>
-</ul>
-<h3 id="33-influence-of-gravitational-acceleration-g"><strong>3.3 Influence of Gravitational Acceleration <span class="arithmatex">\(g\)</span></strong></h3>
-<ul>
-<li>Higher values of <span class="arithmatex">\(g\)</span> (such as on planets with stronger gravity) reduce both the <strong>maximum height</strong> and <strong>horizontal range</strong>.</li>
-<li>The time of flight is inversely proportional to <span class="arithmatex">\(g\)</span>, meaning weaker gravity results in longer projectile motion.</li>
-</ul>
+<h2 id="3-key-equations-of-motion"><strong>3. Key Equations of Motion</strong></h2>
+<h3 id="31-breaking-motion-into-components"><strong>3.1 Breaking Motion into Components</strong></h3>
+<p>If an object is launched with an <strong>initial speed</strong> <span class="arithmatex">\(v_0\)</span> at an <strong>angle</strong> <span class="arithmatex">\(\theta\)</span>, we can break this velocity into:
+- <strong>Horizontal velocity</strong>: <span class="arithmatex">\(v_x=v_0\cos\theta\)</span>
+- <strong>Vertical velocity</strong>: <span class="arithmatex">\(v_y=v_0\sin\theta\)</span></p>
+<p>Since gravity <strong>only affects vertical motion</strong>, the horizontal velocity <strong>stays constant</strong>.</p>
 <hr/>
-<h2 id="4-conclusion"><strong>4. Conclusion</strong></h2>
-<p>The theoretical foundation of projectile motion is based on Newtonian mechanics and kinematic equations. The motion is characterized by:
-- <strong>Independent horizontal and vertical components</strong>.
-- <strong>A parabolic trajectory</strong> due to constant gravitational acceleration.
-- <strong>A well-defined maximum range at 45° launch angle</strong>.</p>
-<p>In the next sections, we will analyze how these theoretical principles apply in practical scenarios and computational simulations.</p>
-<h3 id="phython-implimentation">Phython Implimentation</h3>
+<h3 id="32-equations-for-position-and-velocity"><strong>3.2 Equations for Position and Velocity</strong></h3>
+<p>Using basic physics formulas, we get:</p>
+<p>1️⃣ <strong>Horizontal position (distance traveled in time <span class="arithmatex">\(t\)</span>)</strong>:<br/>
+<span class="arithmatex">\(<span class="arithmatex">\(x=v_0\cos\theta\cdot t\)</span>\)</span></p>
+<p>2️⃣ <strong>Vertical position (height at time <span class="arithmatex">\(t\)</span>)</strong>:<br/>
+<span class="arithmatex">\(<span class="arithmatex">\(y=v_0\sin\theta\cdot t-\frac{1}{2}gt^2\)</span>\)</span></p>
+<p>3️⃣ <strong>Velocity in the horizontal direction</strong> (always constant):<br/>
+<span class="arithmatex">\(<span class="arithmatex">\(v_x=v_0\cos\theta\)</span>\)</span></p>
+<p>4️⃣ <strong>Velocity in the vertical direction</strong> (changes due to gravity):<br/>
+<span class="arithmatex">\(<span class="arithmatex">\(v_y=v_0\sin\theta-gt\)</span>\)</span></p>
+<hr/>
+<h3 id="33-finding-special-points"><strong>3.3 Finding Special Points</strong></h3>
+<p>Now let's look at some important moments in the projectile’s motion.</p>
+<p>✔️ <strong>Time of Flight</strong> (How long the object stays in the air):<br/>
+<span class="arithmatex">\(<span class="arithmatex">\(t_f=\frac{2v_0\sin\theta}{g}\)</span>\)</span> </p>
+<p>✔️ <strong>Maximum Height</strong> (The highest point the object reaches):<br/>
+<span class="arithmatex">\(<span class="arithmatex">\(H=\frac{(v_0\sin\theta)^2}{2g}\)</span>\)</span> </p>
+<p>✔️ <strong>Range (Total Distance the Object Travels Before Hitting the Ground)</strong>:<br/>
+<span class="arithmatex">\(<span class="arithmatex">\(R=\frac{v_0^2\sin(2\theta)}{g}\)</span>\)</span> </p>
+<hr/>
+<h2 id="4-how-different-factors-affect-projectile-motion"><strong>4. How Different Factors Affect Projectile Motion?</strong></h2>
+<p>Here’s how changing different values affects projectile motion:</p>
+<p>🟢 <strong>Effect of Launch Angle <span class="arithmatex">\(\theta\)</span></strong>:
+- Small angles = longer horizontal travel, but less height.
+- Large angles = more height but shorter horizontal distance.
+- <strong>Maximum range occurs at 45°</strong>.</p>
+<p>🟢 <strong>Effect of Initial Speed <span class="arithmatex">\(v_0\)</span></strong>:
+- Higher speed = projectile goes <strong>farther</strong> and <strong>higher</strong>.</p>
+<p>🟢 <strong>Effect of Gravity <span class="arithmatex">\(g\)</span></strong>:
+- On the Moon (<span class="arithmatex">\(g\)</span> is smaller), projectiles stay <strong>longer in the air</strong> and travel <strong>farther</strong>.
+- On Jupiter (<span class="arithmatex">\(g\)</span> is larger), projectiles fall <strong>faster</strong> and don’t go far.</p>
+<hr/>
+<h2 id="5-real-world-applications"><strong>5. Real-World Applications 🌍</strong></h2>
+<p>Projectile motion is not just for physics classes! It applies to:
+- <strong>Sports</strong>: How football players kick the ball at different angles.
+- <strong>Military</strong>: How missiles and bullets are fired for maximum range.
+- <strong>Space Exploration</strong>: How rockets are launched at precise angles.</p>
+<hr/>
+<h2 id="6-conclusion"><strong>6. Conclusion</strong></h2>
+<p>Now we understand the key ideas behind projectile motion:
+- <strong>It has both horizontal and vertical movement</strong>.
+- <strong>Gravity only affects the vertical motion</strong>.
+- <strong>The best angle for the longest range is 45°</strong>.
+- <strong>The initial speed, angle, and gravity all affect the motion</strong>.</p>
+<p>Understanding these principles helps in designing better sports strategies, video game physics, and even launching space missions! </p>
+<hr/>
+<h1 id="phython-implimentation">Phython Implimentation</h1>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 
