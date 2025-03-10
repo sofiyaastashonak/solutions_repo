@@ -1,8 +1,6 @@
 # Problem 1
 # Investigating the Range as a Function of the Angle of Projection
 
-## 1. Theoretical Background
-# **Understanding Projectile Motion: A Beginner-Friendly Guide** 
 
 ## **1. Introduction**
 Have you ever wondered how a soccer ball follows a curved path when kicked? Or how rockets and missiles follow precise trajectories? This is all because of **projectile motion**!  
