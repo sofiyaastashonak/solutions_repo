@@ -75,6 +75,7 @@ By adjusting these values, we get **different possible trajectories**, from low 
 
 ## **5. Limitations of the Idealized Model**
 The equations we used assume an **ideal world** where:
+
 ❌ **No air resistance**: In reality, air slows down projectiles.  
 ❌ **Flat ground assumption**: The model assumes the projectile lands at the same height.  
 ❌ **Constant gravity ($g$)**: Gravity actually changes with altitude.  
