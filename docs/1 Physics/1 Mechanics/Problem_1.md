@@ -18,7 +18,7 @@ To understand projectile motion better, let's derive some important equations.
 
 ---
 
-## **3. Key Equations of Motion** 🧮
+## **3. Key Equations of Motion** 
 
 ### **3.1 Breaking Motion into Components**
 If an object is launched with an **initial speed** $v_0$ at an **angle** $\theta$, we can break this velocity into:
