@@ -11,7 +11,9 @@ In this report, i will **explore how the range of a projectile depends on the la
 
 ## **2. What is Projectile Motion?**
 Projectile motion happens when an object is launched into the air and moves under the influence of **gravity**. The motion can be split into two parts:
+
 - **Horizontal motion**: The object moves forward with a constant speed.
+
 - **Vertical motion**: The object moves up and down due to gravity.
 
 To understand projectile motion better, let's derive some important equations.
@@ -22,7 +24,9 @@ To understand projectile motion better, let's derive some important equations.
 
 ### **3.1 Breaking Motion into Components**
 If an object is launched with an **initial speed** $v_0$ at an **angle** $\theta$, we can break this velocity into:
+
 - **Horizontal velocity**: $v_x=v_0\cos\theta$
+
 - **Vertical velocity**: $v_y=v_0\sin\theta$
 
 Since gravity **only affects vertical motion**, the horizontal velocity **stays constant**.
@@ -49,8 +53,9 @@ Using basic physics formulas, we get:
 ### **3.3 Finding Special Points**
 Now let's look at some important moments in the projectile’s motion.
 
-✔️ **Time of Flight** (How long the object stays in the air):  
-   $$t_f=\frac{2v_0\sin\theta}{g}$$  
+✔️ **Time of Flight** (How long the object stays in the air): 
+
+$$t_f=\frac{2v_0\sin\theta}{g}$$  
 
 ✔️ **Maximum Height** (The highest point the object reaches):  
    $$H=\frac{(v_0\sin\theta)^2}{2g}$$  
@@ -64,7 +69,9 @@ Now let's look at some important moments in the projectile’s motion.
 
 ## **4. Family of Solutions**
 The equations above describe a **family of solutions** depending on different values of:
+
 1. **Launch speed ($v_0$)**: Faster projectiles travel farther and higher.
+
 2. **Launch angle ($\theta$)**: Determines the shape of the trajectory.
 3. **Gravity ($g$)**: Affects how quickly the projectile falls.
 4. **Initial height ($h$)**: Changes the total flight time and range.
