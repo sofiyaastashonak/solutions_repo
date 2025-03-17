@@ -107,9 +107,9 @@ To make the model more **realistic**, we can add:
    - The force slows the projectile down.  
    - The drag force is proportional to the square of the velocity:  
 
-     $$F_d=\frac{1}{2} C_d \rho A v^2$$  
+$$F_d=\frac{1}{2} C_d \rho A v^2$$  
 
-     where $C_d$ is the drag coefficient, $\rho$ is air density, and $A$ is the cross-sectional area.  
+where $C_d$ is the drag coefficient, $\rho$ is air density, and $A$ is the cross-sectional area.  
 
 ✅ **Wind Effects**  
 
