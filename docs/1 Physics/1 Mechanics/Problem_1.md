@@ -57,11 +57,13 @@ Now let's look at some important moments in the projectile’s motion.
 
 $$t_f=\frac{2v_0\sin\theta}{g}$$  
 
-✔️ **Maximum Height** (The highest point the object reaches):  
-   $$H=\frac{(v_0\sin\theta)^2}{2g}$$  
+✔️ **Maximum Height** (The highest point the object reaches): 
 
-✔️ **Range (Total Distance the Object Travels Before Hitting the Ground)**:  
-   $$R=\frac{v_0^2\sin(2\theta)}{g}$$  
+$$H=\frac{(v_0\sin\theta)^2}{2g}$$  
+
+✔️ **Range (Total Distance the Object Travels Before Hitting the Ground)**:
+  
+$$R=\frac{v_0^2\sin(2\theta)}{g}$$  
 
  **Interesting Fact:** The projectile travels the **longest distance** when launched at **45°** because $\sin(2\theta)$ is **largest at this angle**.
 
