@@ -69,7 +69,30 @@ $$H=\frac{(v_0\sin\theta)^2}{2g}$$
 
 $$R=\frac{v_0^2\sin(2\theta)}{g}$$  
 
- **Interesting Fact:** The projectile travels the **longest distance** when launched at **45°** because $\sin(2\theta)$ is **largest at this angle**.
+ ### **Interesting Fact:** The projectile travels the **longest distance** when launched at **45°** because $\sin(2\theta)$ is **largest at this angle**.
+ 
+ ### Why Does a Projectile Travel the Farthest at 45°?
+
+#### 🔹 The Optimal Angle: **45°**
+At **45°**, the velocity is split **equally** between horizontal and vertical directions, creating the perfect balance between **airtime and forward motion**.
+
+Mathematically, the **range** of a projectile is given by:
+
+$$ R = \frac{v_0^2 \sin 2\theta}{g} $$
+
+where:
+
+- $R$ = range of the projectile,
+- $v_0$ = initial velocity,
+- $\theta$ = launch angle,
+- $g$ = acceleration due to gravity.
+
+The function $\sin 2\theta$ reaches its **maximum value** when:
+
+$$ 2\theta = 90^\circ \quad \Rightarrow \quad \theta = 45^\circ $$
+
+Thus, a projectile launched at **45°** travels the **farthest distance** because it achieves the **optimal balance** between horizontal and vertical motion. 
+
 
 ---
 
