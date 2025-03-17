@@ -204,14 +204,14 @@
 <hr/>
 <h3 id="32-equations-for-position-and-velocity"><strong>3.2 Equations for Position and Velocity</strong></h3>
 <p>Using basic physics formulas, we get:</p>
-<p>1️⃣ <strong>Horizontal position (distance traveled in time <span class="arithmatex">\(t\)</span>)</strong>:<br/>
-<span class="arithmatex">\(<span class="arithmatex">\(x=v_0\cos\theta\cdot t\)</span>\)</span></p>
-<p>2️⃣ <strong>Vertical position (height at time <span class="arithmatex">\(t\)</span>)</strong>:<br/>
-<span class="arithmatex">\(<span class="arithmatex">\(y=v_0\sin\theta\cdot t-\frac{1}{2}gt^2\)</span>\)</span></p>
-<p>3️⃣ <strong>Velocity in the horizontal direction</strong> (always constant):<br/>
-<span class="arithmatex">\(<span class="arithmatex">\(v_x=v_0\cos\theta\)</span>\)</span></p>
-<p>4️⃣ <strong>Velocity in the vertical direction</strong> (changes due to gravity):<br/>
-<span class="arithmatex">\(<span class="arithmatex">\(v_y=v_0\sin\theta-gt\)</span>\)</span></p>
+<p>1️⃣ <strong>Horizontal position (distance traveled in time <span class="arithmatex">\(t\)</span>)</strong>:</p>
+<div class="arithmatex">\[x=v_0\cos\theta\cdot t\]</div>
+<p>2️⃣ <strong>Vertical position (height at time <span class="arithmatex">\(t\)</span>)</strong>: </p>
+<div class="arithmatex">\[y=v_0\sin\theta\cdot t-\frac{1}{2}gt^2\]</div>
+<p>3️⃣ <strong>Velocity in the horizontal direction</strong> (always constant):  </p>
+<div class="arithmatex">\[v_x=v_0\cos\theta\]</div>
+<p>4️⃣ <strong>Velocity in the vertical direction</strong> (changes due to gravity): </p>
+<div class="arithmatex">\[v_y=v_0\sin\theta-gt\]</div>
 <hr/>
 <h3 id="33-finding-special-points"><strong>3.3 Finding Special Points</strong></h3>
 <p>Now let's look at some important moments in the projectile’s motion.</p>
@@ -232,8 +232,12 @@
 <li>
 <p><strong>Launch angle (<span class="arithmatex">\(\theta\)</span>)</strong>: Determines the shape of the trajectory.</p>
 </li>
-<li><strong>Gravity (<span class="arithmatex">\(g\)</span>)</strong>: Affects how quickly the projectile falls.</li>
-<li><strong>Initial height (<span class="arithmatex">\(h\)</span>)</strong>: Changes the total flight time and range.</li>
+<li>
+<p><strong>Gravity (<span class="arithmatex">\(g\)</span>)</strong>: Affects how quickly the projectile falls.</p>
+</li>
+<li>
+<p><strong>Initial height (<span class="arithmatex">\(h\)</span>)</strong>: Changes the total flight time and range.</p>
+</li>
 </ol>
 <p>By adjusting these values, we get <strong>different possible trajectories</strong>, from low and fast motions (like bullets) to high and slow ones (like thrown balls).</p>
 <hr/>
@@ -246,80 +250,45 @@
 <hr/>
 <h2 id="6-extending-the-model-real-world-effects"><strong>6. Extending the Model: Real-World Effects</strong></h2>
 <p>To make the model more <strong>realistic</strong>, we can add:</p>
-<p>✅ <strong>Air Resistance (Drag Force)</strong><br/>
-   - The force slows the projectile down.<br/>
-   - The drag force is proportional to the square of the velocity:<br/>
-<span class="arithmatex">\(<span class="arithmatex">\(F_d=\frac{1}{2} C_d \rho A v^2\)</span>\)</span><br/>
-     where <span class="arithmatex">\(C_d\)</span> is the drag coefficient, <span class="arithmatex">\(\rho\)</span> is air density, and <span class="arithmatex">\(A\)</span> is the cross-sectional area.  </p>
-<p>✅ <strong>Wind Effects</strong><br/>
-   - A tailwind increases range, while a headwind decreases it.  </p>
-<p>✅ <strong>Launch Altitude</strong><br/>
-   - At high altitudes, air resistance is lower, and gravity is weaker, so objects travel <strong>farther</strong>.  </p>
-<p>✅ <strong>Rotation of the Earth (Coriolis Effect)</strong><br/>
-   - Important for long-range artillery and missiles.  </p>
+<p>✅ <strong>Air Resistance (Drag Force)</strong> </p>
+<ul>
+<li>The force slows the projectile down.  </li>
+<li>
+<p>The drag force is proportional to the square of the velocity:  </p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(F_d=\frac{1}{2} C_d \rho A v^2\)</span>\)</span> </p>
+<p>where <span class="arithmatex">\(C_d\)</span> is the drag coefficient, <span class="arithmatex">\(\rho\)</span> is air density, and <span class="arithmatex">\(A\)</span> is the cross-sectional area.  </p>
+</li>
+</ul>
+<p>✅ <strong>Wind Effects</strong> </p>
+<ul>
+<li>A tailwind increases range, while a headwind decreases it.  </li>
+</ul>
+<p>✅ <strong>Launch Altitude</strong> </p>
+<ul>
+<li>At high altitudes, air resistance is lower, and gravity is weaker, so objects travel <strong>farther</strong>.  </li>
+</ul>
+<p>✅ <strong>Rotation of the Earth (Coriolis Effect)</strong> </p>
+<ul>
+<li>Important for long-range artillery and missiles.  </li>
+</ul>
 <hr/>
 <h2 id="7-real-world-applications"><strong>7. Real-World Applications 🌍</strong></h2>
-<p>Projectile motion is not just for physics classes! It applies to:
-- <strong>Sports</strong>: How football players kick the ball at different angles.
-- <strong>Military</strong>: How missiles and bullets are fired for maximum range.
-- <strong>Space Exploration</strong>: How rockets are launched at precise angles.</p>
-<hr/>
-<h2 id="8-conclusion"><strong>8. Conclusion</strong></h2>
-<p>Now we u understand the key ideas behind projectile motion:
-- <strong>It has both horizontal and vertical movement</strong>.
-- <strong>Gravity only affects the vertical motion</strong>.
-- <strong>The best angle for the longest range is 45°</strong>.
-- <strong>The initial speed, angle, and gravity all affect the motion</strong>.
-- <strong>The real world includes air resistance, wind, and altitude effects</strong>.</p>
-<p>Understanding these principles helps in designing better sports strategies, video game physics, and even launching space missions! </p>
+<p>Projectile motion is not just for physics classes! It applies to:</p>
+<ul>
+<li>
+<p><strong>Sports</strong>: How football players kick the ball at different angles.</p>
+</li>
+<li>
+<p><strong>Military</strong>: How missiles and bullets are fired for maximum range.</p>
+</li>
+<li>
+<p><strong>Space Exploration</strong>: How rockets are launched at precise angles.</p>
+</li>
+</ul>
 <hr/>
 <h1 id="phython-implimentation">Phython Implimentation</h1>
-<pre><code class="language-python">import numpy as np
-import matplotlib.pyplot as plt
-
-class ProjectileMotion:
-    def __init__(self, g=9.81):
-        """Initialize with gravitational acceleration (m/s²)"""
-        self.g = g
-
-    def calculate_trajectory(self, v0, angle_deg, t_step=0.01):
-        """
-        Calculate projectile trajectory
-        Parameters:
-            v0: initial velocity (m/s)
-            angle_deg: launch angle in degrees
-            t_step: time step for calculations
-        Returns:
-            x, y: arrays of x and y coordinates
-        """
-        # Convert angle to radians
-        angle_rad = np.radians(angle_deg)
-
-        # Initial velocity components
-        vx = v0 * np.cos(angle_rad)
-        vy = v0 * np.sin(angle_rad)
-
-        # Time of flight
-        t_flight = 2 * vy / self.g
-
-        # Generate time points
-        t = np.arange(0, t_flight + t_step, t_step)
-
-        # Calculate positions
-        x = vx * t
-        y = vy * t - 0.5 * self.g * t**2
-
-        # Filter out negative y values (after hitting ground)
-        valid_indices = y &gt;= 0
-        return x[valid_indices], y[valid_indices]
-
-    def get_range(self, v0, angle_deg):
-        """Calculate maximum range for given velocity and angle"""
-        angle_rad = np.radians(angle_deg)
-        return (v0**2 * np.sin(2 * angle_rad)) / self.g
-
-def plot_trajectory_comparison():
-    """Plot trajectories for different angles and velocities"""
+<pre><code class="language-python">def plot_trajectory_comparison_separate():
+    """Plot trajectories for different angles and velocities on separate plots"""
     projectile = ProjectileMotion()
 
     # Parameters to compare
@@ -327,71 +296,50 @@ def plot_trajectory_comparison():
     angles = [30, 45, 60]  # degrees
     colors = ['blue', 'red', 'green']
 
-    plt.figure(figsize=(12, 8))
-
-    # Plot trajectories
     for v0 in velocities:
+        plt.figure(figsize=(12, 8))  # Create a new figure for each velocity
+
+        # Plot trajectories for the current velocity
         for angle, color in zip(angles, colors):
             x, y = projectile.calculate_trajectory(v0, angle)
-            plt.plot(x, y, label=f'v0={v0}m/s, θ={angle}°', color=color, alpha=0.7 if v0 == 20 else 1)
+            plt.plot(x, y, label=f'θ={angle}°', color=color)
 
-    plt.title('Projectile Motion Trajectories')
-    plt.xlabel('Distance (m)')
-    plt.ylabel('Height (m)')
-    plt.grid(True)
-    plt.legend()
-    plt.axis('equal')
-    plt.show()
+        plt.title(f'Projectile Motion Trajectories (v0 = {v0} m/s)')
+        plt.xlabel('Distance (m)')
+        plt.ylabel('Height (m)')
+        plt.grid(True)
+        plt.legend()
+        plt.axis('equal')
+        plt.show()  # Show the plot for the current velocity before moving to the next
 
-def plot_range_vs_angle():
-    """Plot range vs launch angle"""
-    projectile = ProjectileMotion()
-    v0 = 20  # constant velocity of 20 m/s
-
-    # Generate angles from 0 to 90 degrees
-    angles = np.arange(0, 91, 1)
-    ranges = [projectile.get_range(v0, angle) for angle in angles]
-
-    plt.figure(figsize=(10, 6))
-    plt.plot(angles, ranges, 'b-')
-    plt.title(f'Range vs Launch Angle (v0 = {v0} m/s)')
-    plt.xlabel('Launch Angle (degrees)')
-    plt.ylabel('Range (m)')
-    plt.grid(True)
-
-    # Mark maximum range (should be at 45°)
-    max_range = max(ranges)
-    max_angle = angles[ranges.index(max_range)]
-    plt.plot(max_angle, max_range, 'ro', label=f'Max range = {max_range:.1f}m at {max_angle}°')
-    plt.legend()
-    plt.show()
-
-def main():
-    """Main function to run simulations"""
-    projectile = ProjectileMotion()
-
-    # Example scenario
-    v0 = 20  # m/s
-    angle = 45  # degrees
-
-    # Calculate and print single trajectory info
-    x, y = projectile.calculate_trajectory(v0, angle)
-    max_range = projectile.get_range(v0, angle)
-    print(f"Initial velocity: {v0} m/s")
-    print(f"Launch angle: {angle}°")
-    print(f"Maximum range: {max_range:.2f} m")
-    print(f"Maximum height: {max(y):.2f} m")
-
-    # Generate comparison plots
-    plot_trajectory_comparison()
-    plot_range_vs_angle()
-
-if __name__ == "__main__":
-    main()
+# Call the modified function to generate the plots
+plot_trajectory_comparison_separate()
 </code></pre>
 <h2 id="plot">Plot</h2>
-<p><img alt="alt text" src="../image-2.png"/>
-<img alt="alt text" src="../image-1.png"/></p>
+<p><img alt="alt text" src="../image-10.png"/></p>
+<p><img alt="alt text" src="../image-11.png"/></p>
+<hr/>
+<h2 id="8-conclusion"><strong>8. Conclusion</strong></h2>
+<p>Now we u understand the key ideas behind projectile motion:</p>
+<ul>
+<li>
+<p><strong>It has both horizontal and vertical movement</strong>.</p>
+</li>
+<li>
+<p><strong>Gravity only affects the vertical motion</strong>.</p>
+</li>
+<li>
+<p><strong>The best angle for the longest range is 45°</strong>.</p>
+</li>
+<li>
+<p><strong>The initial speed, angle, and gravity all affect the motion</strong>.</p>
+</li>
+<li>
+<p><strong>The real world includes air resistance, wind, and altitude effects</strong>.</p>
+</li>
+</ul>
+<p>Understanding these principles helps in designing better sports strategies, video game physics, and even launching space missions! </p>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
