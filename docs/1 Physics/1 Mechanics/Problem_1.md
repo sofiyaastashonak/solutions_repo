@@ -244,4 +244,6 @@ if __name__ == "__main__":
 
 ## Plot
 
+![alt text](image-2.png)
 ![alt text](image-1.png)
+
