@@ -31,13 +31,14 @@ This is now a **linear differential equation**, which can be solved analytically
 
 $$\theta_h(t) = e^{-\gamma t/2} (C_1\cos(\omega_d t) + C_2\sin(\omega_d t))$$  
 
- where the **damped frequency** is:  
+where the **damped frequency** is:  
 
 $$\omega_d = \sqrt{\omega_0^2 - \frac{\gamma^2}{4}}$$  
 
 2. **Particular solution** (response to the external force):  
 
 $$\theta_p(t) = \frac{A}{\sqrt{(\omega_0^2 - \omega^2)^2 + \gamma^2\omega^2}} \cos(\omega t - \phi)$$  
+
 where the **phase shift** $\phi$ is given by: 
 
 $$\tan\phi = \frac{\gamma\omega}{\omega_0^2 - \omega^2}$$  
