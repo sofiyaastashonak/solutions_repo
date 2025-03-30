@@ -28,16 +28,21 @@ $$\frac{d^2\theta}{dt^2} + \gamma \frac{d\theta}{dt} + \omega_0^2\theta = A\cos(
 This is now a **linear differential equation**, which can be solved analytically. The **general solution** consists of two parts:  
 
 1. **Homogeneous solution** (natural motion of the damped pendulum):  
-   $$\theta_h(t) = e^{-\gamma t/2} (C_1\cos(\omega_d t) + C_2\sin(\omega_d t))$$  
-   where the **damped frequency** is:  
-   $$\omega_d = \sqrt{\omega_0^2 - \frac{\gamma^2}{4}}$$  
+
+ $$\theta_h(t) = e^{-\gamma t/2} (C_1\cos(\omega_d t) + C_2\sin(\omega_d t))$$  
+ where the **damped frequency** is:  
+
+$$\omega_d = \sqrt{\omega_0^2 - \frac{\gamma^2}{4}}$$  
 
 2. **Particular solution** (response to the external force):  
-   $$\theta_p(t) = \frac{A}{\sqrt{(\omega_0^2 - \omega^2)^2 + \gamma^2\omega^2}} \cos(\omega t - \phi)$$  
-   where the **phase shift** $\phi$ is given by:  
-   $$\tan\phi = \frac{\gamma\omega}{\omega_0^2 - \omega^2}$$  
 
-The total solution is:  
+$$\theta_p(t) = \frac{A}{\sqrt{(\omega_0^2 - \omega^2)^2 + \gamma^2\omega^2}} \cos(\omega t - \phi)$$  
+where the **phase shift** $\phi$ is given by: 
+
+$$\tan\phi = \frac{\gamma\omega}{\omega_0^2 - \omega^2}$$  
+
+The total solution is: 
+
 $$\theta(t) = \theta_h(t) + \theta_p(t)$$  
 
 ---
@@ -55,11 +60,14 @@ At resonance, the amplitude of oscillations **increases significantly**, which c
 The energy in the forced damped pendulum consists of:  
 
 - **Kinetic energy**:  
-  $$KE = \frac{1}{2} m L^2 \dot{\theta}^2$$  
+
+$$KE = \frac{1}{2} m L^2 \dot{\theta}^2$$  
 - **Potential energy**:  
-  $$PE = mgL(1 - \cos\theta)$$  
-- **Total energy**:  
-  $$E = KE + PE$$  
+
+$$PE = mgL(1 - \cos\theta)$$  
+- **Total energy**: 
+
+$$E = KE + PE$$  
 
 Over time, damping ($\gamma$) **removes** energy from the system, while the external force ($A\cos(\omega t)$) **injects** energy. The balance between these competing effects determines the system’s long-term behavior.
 
