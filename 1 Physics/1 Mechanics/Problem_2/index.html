@@ -251,12 +251,14 @@
 ✅ <strong>Biomechanics</strong> (understanding human walking and balance)  </p>
 <hr/>
 <h2 id="4-computational-implementation">4. Computational Implementation</h2>
-<p>```python</p>
-<p>import numpy as np
+<pre><code class="language-python">
+
+import numpy as np
 import matplotlib.pyplot as plt
-from scipy.integrate import odeint</p>
-<h1 id="pendulum-differential-equation">Pendulum differential equation</h1>
-<p>def pendulum_equation(state, t, b, f, omega):
+from scipy.integrate import odeint
+
+# Pendulum differential equation
+def pendulum_equation(state, t, b, f, omega):
     """
     state = [theta, omega] (angle, angular velocity)
     b = damping coefficient
@@ -265,38 +267,43 @@ from scipy.integrate import odeint</p>
     """
     theta, omega = state
     dtheta_dt = omega
-    domega_dt = -np.sin(theta) - b<em>omega + f</em>np.cos(omega*t)
-    return [dtheta_dt, domega_dt]</p>
-<h1 id="rk4-integration-method">RK4 integration method</h1>
-<p>def rk4_step(state, t, dt, b, f, omega):
+    domega_dt = -np.sin(theta) - b*omega + f*np.cos(omega*t)
+    return [dtheta_dt, domega_dt]
+
+# RK4 integration method
+def rk4_step(state, t, dt, b, f, omega):
     k1 = np.array(pendulum_equation(state, t, b, f, omega))
-    k2 = np.array(pendulum_equation(state + 0.5<em>dt</em>k1, t + 0.5<em>dt, b, f, omega))
-    k3 = np.array(pendulum_equation(state + 0.5</em>dt<em>k2, t + 0.5</em>dt, b, f, omega))
-    k4 = np.array(pendulum_equation(state + dt<em>k3, t + dt, b, f, omega))
-    return state + (dt/6.0)</em>(k1 + 2<em>k2 + 2</em>k3 + k4)</p>
-<h1 id="simulation-function">Simulation function</h1>
-<p>def simulate_pendulum(t_max, dt, theta0, omega0, b, f, omega):
+    k2 = np.array(pendulum_equation(state + 0.5*dt*k1, t + 0.5*dt, b, f, omega))
+    k3 = np.array(pendulum_equation(state + 0.5*dt*k2, t + 0.5*dt, b, f, omega))
+    k4 = np.array(pendulum_equation(state + dt*k3, t + dt, b, f, omega))
+    return state + (dt/6.0)*(k1 + 2*k2 + 2*k3 + k4)
+
+# Simulation function
+def simulate_pendulum(t_max, dt, theta0, omega0, b, f, omega):
     t = np.arange(0, t_max, dt)
     states = np.zeros((len(t), 2))
-    states[0] = [theta0, omega0]</p>
-<pre><code>for i in range(1, len(t)):
-    states[i] = rk4_step(states[i-1], t[i-1], dt, b, f, omega)
+    states[0] = [theta0, omega0]
 
-return t, states[:, 0], states[:, 1]
-</code></pre>
-<h1 id="parameters">Parameters</h1>
-<p>t_max = 100.0
+    for i in range(1, len(t)):
+        states[i] = rk4_step(states[i-1], t[i-1], dt, b, f, omega)
+
+    return t, states[:, 0], states[:, 1]
+
+# Parameters
+t_max = 100.0
 dt = 0.05
 theta0 = 0.1
-omega0 = 0.0</p>
-<h1 id="different-simulation-cases">Different simulation cases</h1>
-<p>cases = [
+omega0 = 0.0
+
+# Different simulation cases
+cases = [
     {"b": 0.1, "f": 0.0, "omega": 0.0, "label": "Undamped"},
     {"b": 0.5, "f": 0.0, "omega": 0.0, "label": "Damped"},
     {"b": 0.5, "f": 0.5, "omega": 1.0, "label": "Forced"}
-]</p>
-<h1 id="1-time-series-plot">1. Time series plot</h1>
-<p>plt.figure(figsize=(12, 8))
+]
+
+# 1. Time series plot
+plt.figure(figsize=(12, 8))
 for case in cases:
     t, theta, omega = simulate_pendulum(t_max, dt, theta0, omega0, 
                                       case["b"], case["f"], case["omega"])
@@ -305,9 +312,10 @@ plt.title("Pendulum Motion")
 plt.xlabel("Time")
 plt.ylabel("Angle (rad)")
 plt.legend()
-plt.grid(True)</p>
-<h1 id="2-phase-portrait">2. Phase portrait</h1>
-<p>plt.figure(figsize=(12, 8))
+plt.grid(True)
+
+# 2. Phase portrait
+plt.figure(figsize=(12, 8))
 for case in cases:
     t, theta, omega = simulate_pendulum(t_max, dt, theta0, omega0, 
                                       case["b"], case["f"], case["omega"])
@@ -316,9 +324,10 @@ plt.title("Phase Portrait")
 plt.xlabel("Angle (rad)")
 plt.ylabel("Angular Velocity (rad/s)")
 plt.legend()
-plt.grid(True)</p>
-<h1 id="3-poincare-section">3. Poincaré section</h1>
-<p>plt.figure(figsize=(12, 8))
+plt.grid(True)
+
+# 3. Poincaré section
+plt.figure(figsize=(12, 8))
 for case in cases:
     t, theta, omega = simulate_pendulum(t_max, dt, theta0, omega0, 
                                       case["b"], case["f"], case["omega"])
@@ -331,35 +340,41 @@ plt.title("Poincaré Section")
 plt.xlabel("Angle (rad)")
 plt.ylabel("Angular Velocity (rad/s)")
 plt.legend()
-plt.grid(True)</p>
-<h1 id="4-bifurcation-diagram">4. Bifurcation diagram</h1>
-<p>plt.figure(figsize=(12, 8))
+plt.grid(True)
+
+# 4. Bifurcation diagram
+plt.figure(figsize=(12, 8))
 f_values = np.linspace(0, 1.5, 200)
-bifurcation_points = []</p>
-<p>for f in f_values:
+bifurcation_points = []
+
+for f in f_values:
     t, theta, omega = simulate_pendulum(t_max, dt, theta0, omega0, 
                                       0.5, f, 1.0)
     # Take samples from second half of simulation to avoid transients
     period = 2*np.pi/1.0
     sample_indices = np.arange(int(len(t)/2), len(t), int(period/dt))
-    bifurcation_points.extend(theta[sample_indices])</p>
-<p>plt.scatter([f_values[i//len(sample_indices)] 
+    bifurcation_points.extend(theta[sample_indices])
+
+plt.scatter([f_values[i//len(sample_indices)] 
             for i in range(len(bifurcation_points))], 
             bifurcation_points, s=1)
 plt.title("Bifurcation Diagram")
 plt.xlabel("Forcing Amplitude")
 plt.ylabel("Angle (rad)")
-plt.grid(True)</p>
-<p>plt.tight_layout()
-plt.show()</p>
-<h1 id="print-some-basic-analysis">Print some basic analysis</h1>
-<p>for case in cases:
+plt.grid(True)
+
+plt.tight_layout()
+plt.show()
+
+# Print some basic analysis
+for case in cases:
     t, theta, omega = simulate_pendulum(t_max, dt, theta0, omega0, 
                                       case["b"], case["f"], case["omega"])
     print(f"\n{case['label']} Case:")
     print(f"Max amplitude: {np.max(np.abs(theta)):.3f} rad")
-    print(f"Final energy: {0.5<em>omega[-1]</em>*2 + (1-np.cos(theta[-1])):.3f}")</p>
-<p>```</p>
+    print(f"Final energy: {0.5*omega[-1]**2 + (1-np.cos(theta[-1])):.3f}")
+
+</code></pre>
 <p><img alt="alt text" src="../image-3.png"/></p>
 <p><img alt="alt text" src="../image-5.png"/></p>
 <p><img alt="alt text" src="../image-7.png"/></p>
