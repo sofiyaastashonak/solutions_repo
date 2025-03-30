@@ -191,21 +191,19 @@
 <div class="arithmatex">\[\frac{d^2\theta}{dt^2} + \gamma \frac{d\theta}{dt} + \omega_0^2\theta = A\cos(\omega t)\]</div>
 <p>This is now a <strong>linear differential equation</strong>, which can be solved analytically. The <strong>general solution</strong> consists of two parts:  </p>
 <ol>
-<li>
-<p><strong>Homogeneous solution</strong> (natural motion of the damped pendulum):<br/>
-<span class="arithmatex">\(<span class="arithmatex">\(\theta_h(t) = e^{-\gamma t/2} (C_1\cos(\omega_d t) + C_2\sin(\omega_d t))\)</span>\)</span><br/>
-   where the <strong>damped frequency</strong> is:<br/>
-<span class="arithmatex">\(<span class="arithmatex">\(\omega_d = \sqrt{\omega_0^2 - \frac{\gamma^2}{4}}\)</span>\)</span> </p>
-</li>
-<li>
-<p><strong>Particular solution</strong> (response to the external force):<br/>
-<span class="arithmatex">\(<span class="arithmatex">\(\theta_p(t) = \frac{A}{\sqrt{(\omega_0^2 - \omega^2)^2 + \gamma^2\omega^2}} \cos(\omega t - \phi)\)</span>\)</span><br/>
-   where the <strong>phase shift</strong> <span class="arithmatex">\(\phi\)</span> is given by:<br/>
-<span class="arithmatex">\(<span class="arithmatex">\(\tan\phi = \frac{\gamma\omega}{\omega_0^2 - \omega^2}\)</span>\)</span> </p>
-</li>
+<li><strong>Homogeneous solution</strong> (natural motion of the damped pendulum):  </li>
 </ol>
-<p>The total solution is:<br/>
-<span class="arithmatex">\(<span class="arithmatex">\(\theta(t) = \theta_h(t) + \theta_p(t)\)</span>\)</span> </p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\theta_h(t) = e^{-\gamma t/2} (C_1\cos(\omega_d t) + C_2\sin(\omega_d t))\)</span>\)</span><br/>
+ where the <strong>damped frequency</strong> is:  </p>
+<div class="arithmatex">\[\omega_d = \sqrt{\omega_0^2 - \frac{\gamma^2}{4}}\]</div>
+<ol>
+<li><strong>Particular solution</strong> (response to the external force):  </li>
+</ol>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\theta_p(t) = \frac{A}{\sqrt{(\omega_0^2 - \omega^2)^2 + \gamma^2\omega^2}} \cos(\omega t - \phi)\)</span>\)</span><br/>
+where the <strong>phase shift</strong> <span class="arithmatex">\(\phi\)</span> is given by: </p>
+<div class="arithmatex">\[\tan\phi = \frac{\gamma\omega}{\omega_0^2 - \omega^2}\]</div>
+<p>The total solution is: </p>
+<div class="arithmatex">\[\theta(t) = \theta_h(t) + \theta_p(t)\]</div>
 <hr/>
 <h3 id="12-resonance-condition"><strong>1.2 Resonance Condition</strong></h3>
 <p>Resonance occurs when the driving frequency <strong>matches</strong> the system’s natural frequency:  </p>
@@ -215,13 +213,13 @@
 <h3 id="13-energy-exchange-in-the-system"><strong>1.3 Energy Exchange in the System</strong></h3>
 <p>The energy in the forced damped pendulum consists of:  </p>
 <ul>
-<li><strong>Kinetic energy</strong>:<br/>
-<span class="arithmatex">\(<span class="arithmatex">\(KE = \frac{1}{2} m L^2 \dot{\theta}^2\)</span>\)</span> </li>
-<li><strong>Potential energy</strong>:<br/>
-<span class="arithmatex">\(<span class="arithmatex">\(PE = mgL(1 - \cos\theta)\)</span>\)</span> </li>
-<li><strong>Total energy</strong>:<br/>
-<span class="arithmatex">\(<span class="arithmatex">\(E = KE + PE\)</span>\)</span> </li>
+<li><strong>Kinetic energy</strong>:  </li>
 </ul>
+<p><span class="arithmatex">\(<span class="arithmatex">\(KE = \frac{1}{2} m L^2 \dot{\theta}^2\)</span>\)</span><br/>
+- <strong>Potential energy</strong>:  </p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(PE = mgL(1 - \cos\theta)\)</span>\)</span><br/>
+- <strong>Total energy</strong>: </p>
+<div class="arithmatex">\[E = KE + PE\]</div>
 <p>Over time, damping (<span class="arithmatex">\(\gamma\)</span>) <strong>removes</strong> energy from the system, while the external force (<span class="arithmatex">\(A\cos(\omega t)\)</span>) <strong>injects</strong> energy. The balance between these competing effects determines the system’s long-term behavior.</p>
 <hr/>
 <h2 id="2-analysis-of-dynamics">2. Analysis of Dynamics 📊</h2>
