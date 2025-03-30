@@ -101,7 +101,8 @@ The forced damped pendulum model is useful in:
 ## 4. Computational Implementation   
 
 
-  ```python
+```python
+
 
 import numpy as np
 import matplotlib.pyplot as plt
