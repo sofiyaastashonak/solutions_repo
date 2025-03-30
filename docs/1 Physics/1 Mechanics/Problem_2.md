@@ -100,7 +100,9 @@ The forced damped pendulum model is useful in:
 
 ## 4. Computational Implementation   
 
+
   ```python
+
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
@@ -221,10 +223,15 @@ for case in cases:
     print(f"\n{case['label']} Case:")
     print(f"Max amplitude: {np.max(np.abs(theta)):.3f} rad")
     print(f"Final energy: {0.5*omega[-1]**2 + (1-np.cos(theta[-1])):.3f}")
+
 ```
+
 ![alt text](image-3.png)
+
 ![alt text](image-5.png)
+
 ![alt text](image-7.png)
+
 ![alt text](image-8.png)
 ---
 
