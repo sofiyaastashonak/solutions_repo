@@ -29,7 +29,8 @@ This is now a **linear differential equation**, which can be solved analytically
 
 1. **Homogeneous solution** (natural motion of the damped pendulum):  
 
- $$\theta_h(t) = e^{-\gamma t/2} (C_1\cos(\omega_d t) + C_2\sin(\omega_d t))$$  
+$$\theta_h(t) = e^{-\gamma t/2} (C_1\cos(\omega_d t) + C_2\sin(\omega_d t))$$  
+
  where the **damped frequency** is:  
 
 $$\omega_d = \sqrt{\omega_0^2 - \frac{\gamma^2}{4}}$$  
@@ -62,9 +63,11 @@ The energy in the forced damped pendulum consists of:
 - **Kinetic energy**:  
 
 $$KE = \frac{1}{2} m L^2 \dot{\theta}^2$$  
+
 - **Potential energy**:  
 
 $$PE = mgL(1 - \cos\theta)$$  
+
 - **Total energy**: 
 
 $$E = KE + PE$$  
