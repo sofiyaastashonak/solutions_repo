@@ -93,6 +93,8 @@ $$ 2\theta = 90^\circ \quad \Rightarrow \quad \theta = 45^\circ $$
 
 Thus, a projectile launched at **45°** travels the **farthest distance** because it achieves the **optimal balance** between horizontal and vertical motion. 
 
+![alt text](image-12.png)
+
 
 ---
 
