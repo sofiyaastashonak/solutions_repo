@@ -103,11 +103,19 @@ The equations above describe a **family of solutions** depending on different va
 
 1. **Launch speed ($v_0$)**: Faster projectiles travel farther and higher.
 
+![alt text](image-16.png)
+
 2. **Launch angle ($\theta$)**: Determines the shape of the trajectory.
+
+![alt text](image-15.png)
 
 3. **Gravity ($g$)**: Affects how quickly the projectile falls.
 
+![alt text](image-17.png)
+
 4. **Initial height ($h$)**: Changes the total flight time and range.
+
+![alt text](image-18.png)
 
 By adjusting these values, we get **different possible trajectories**, from low and fast motions (like bullets) to high and slow ones (like thrown balls).
 
@@ -135,6 +143,10 @@ To make the model more **realistic**, we can add:
 $$F_d=\frac{1}{2} C_d \rho A v^2$$  
 
 where $C_d$ is the drag coefficient, $\rho$ is air density, and $A$ is the cross-sectional area.  
+
+
+![alt text](image-19.png)
+
 
 ✅ **Wind Effects**  
 
@@ -166,40 +178,39 @@ Projectile motion is not just for physics classes! It applies to:
 # Phython Implimentation
 
 ```python
-def plot_trajectory_comparison_separate():
-    """Plot trajectories for different angles and velocities on separate plots"""
-    projectile = ProjectileMotion()
-    
-    # Parameters to compare
-    velocities = [20, 25]  # m/s
-    angles = [30, 45, 60]  # degrees
-    colors = ['blue', 'red', 'green']
-    
-    for v0 in velocities:
-        plt.figure(figsize=(12, 8))  # Create a new figure for each velocity
-        
-        # Plot trajectories for the current velocity
-        for angle, color in zip(angles, colors):
-            x, y = projectile.calculate_trajectory(v0, angle)
-            plt.plot(x, y, label=f'θ={angle}°', color=color)
-        
-        plt.title(f'Projectile Motion Trajectories (v0 = {v0} m/s)')
-        plt.xlabel('Distance (m)')
-        plt.ylabel('Height (m)')
-        plt.grid(True)
-        plt.legend()
-        plt.axis('equal')
-        plt.show()  # Show the plot for the current velocity before moving to the next
+import numpy as np
+import matplotlib.pyplot as plt
 
-# Call the modified function to generate the plots
-plot_trajectory_comparison_separate()
+# Constants
+g = 9.81  # Gravity (m/s^2)
+angles = [45]  # Fixed launch angle
+velocities = [30, 40, 50]  # Different initial velocities (m/s)
+colors = ['red', 'purple', 'green']  # Colors for different trajectories
+
+plt.figure(figsize=(8, 5))
+
+# Loop through each velocity and plot trajectory
+for v0, color in zip(velocities, colors):
+    t_flight = 2 * v0 * np.sin(np.radians(angles[0])) / g  # Time of flight
+    t = np.linspace(0, t_flight, num=100)  # Time intervals
+    x = v0 * np.cos(np.radians(angles[0])) * t  # Horizontal distance
+    y = v0 * np.sin(np.radians(angles[0])) * t - 0.5 * g * t**2  # Vertical distance
+
+    plt.plot(x, y, label=f'{v0} m/s', color=color)
+
+# Labels and grid
+plt.xlabel("Horizontal Distance (m)")
+plt.ylabel("Vertical Distance (m)")
+plt.title("Projectile Motion at 45° with Different Initial Velocities")
+plt.legend()
+plt.grid()
+plt.show()
+
 ```
 
 ## Plot
 
-![alt text](image-10.png)
-
-![alt text](image-11.png)
+![alt text](image-13.png)
 
 ---
 
