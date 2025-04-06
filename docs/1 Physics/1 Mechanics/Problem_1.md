@@ -152,6 +152,8 @@ where $C_d$ is the drag coefficient, $\rho$ is air density, and $A$ is the cross
 
    - A tailwind increases range, while a headwind decreases it.  
 
+   ![alt text](image-20.png)
+
 ✅ **Launch Altitude**  
 
    - At high altitudes, air resistance is lower, and gravity is weaker, so objects travel **farther**.  
