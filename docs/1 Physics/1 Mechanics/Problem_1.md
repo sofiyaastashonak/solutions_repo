@@ -102,18 +102,46 @@ Thus, a projectile launched at **45°** travels the **farthest distance** becaus
 The equations above describe a **family of solutions** depending on different values of:
 
 1. **Launch speed ($v_0$)**: Faster projectiles travel farther and higher.
+The initial speed determines the **kinetic energy** and range:
+
+- **$v_0 = 15$ m/s** → short trajectory
+- **$v_0 = 20$ m/s** → medium
+- **$v_0 = 25$ m/s** → long and high trajectory
+
 
 ![alt text](image-16.png)
 
 2. **Launch angle ($\theta$)**: Determines the shape of the trajectory.
+The launch angle determines how the initial speed is split into horizontal and vertical components:
+
+- **Low angle (30°)**: Strong horizontal motion, short airtime → low flat trajectory.
+- **Optimal angle (45°)**: Perfect balance of height and range → maximum horizontal distance.
+- **High angle (60°)**: High arc, longer airtime but shorter range.
+
 
 ![alt text](image-15.png)
 
 3. **Gravity ($g$)**: Affects how quickly the projectile falls.
+ The gravitational pull affects both **maximum height** and **time of flight**.
+
+| Planet 🌍 | Gravity $g$ (m/s²) |
+|----------|--------------------|
+| Earth    | 9.81               |
+| Mars     | 3.71               |
+| Moon     | 1.62               |
+
+- On the **Moon**, projectiles rise higher and stay in the air much longer.
+- On **Mars**, the behavior is intermediate between Moon and Earth.
 
 ![alt text](image-17.png)
 
 4. **Initial height ($h$)**: Changes the total flight time and range.
+Initial height $h$ changes how far the projectile travels **before hitting the ground**.
+
+- **$h = 0$ m**: Launch from ground.
+- **$h = 10$ m**: Launch from a platform.
+- **$h = 20$ m**: Launch from a rooftop/mountain.
+
 
 ![alt text](image-18.png)
 
@@ -150,7 +178,10 @@ where $C_d$ is the drag coefficient, $\rho$ is air density, and $A$ is the cross
 
 ✅ **Wind Effects**  
 
-   - A tailwind increases range, while a headwind decreases it.  
+- A tailwind increases range, while a headwind decreases it.  
+- A **tailwind** adds to horizontal velocity → increases range.
+- A **headwind** subtracts → reduces distance.
+- **Crosswind**: affects side motion (not modeled here but relevant in real life).
 
    ![alt text](image-20.png)
 
@@ -160,7 +191,12 @@ where $C_d$ is the drag coefficient, $\rho$ is air density, and $A$ is the cross
 
 ✅ **Rotation of the Earth (Coriolis Effect)** 
 
-   - Important for long-range artillery and missiles.  
+   - Important for long-range artillery and missiles.
+
+ On a rotating Earth, especially at large scales (e.g., missiles, satellites), the Coriolis force causes the projectile to deviate:
+- In the Northern Hemisphere: rightward deflection.
+- In the Southern Hemisphere: leftward deflection.
+  
 
 ---
 
