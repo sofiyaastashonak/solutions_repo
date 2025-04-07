@@ -252,135 +252,148 @@ where <span class="arithmatex">\(g\)</span> is the acceleration due to gravity a
 ✅ <strong>Electrical circuits</strong> (driven RLC circuits behave analogously)<br/>
 ✅ <strong>Biomechanics</strong> (understanding human walking and balance)  </p>
 <hr/>
-<h2 id="4-computational-implementation">4. Computational Implementation</h2>
+<h2 id="4-simulation-and-visualization-of-pendulum-dynamics">4. Simulation and Visualization of Pendulum Dynamics</h2>
+<p>To better understand how different physical effects influence a pendulum's behavior, we simulate four distinct scenarios using numerical integration of the equation:</p>
+<div class="arithmatex">\[\frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + \omega_0^2 \sin(\theta) = A\cos(\omega t)\]</div>
+<p>where:
+- <span class="arithmatex">\(b\)</span> is the damping coefficient,
+- <span class="arithmatex">\(A\)</span> is the amplitude of the external driving force,
+- <span class="arithmatex">\(\omega\)</span> is the driving frequency.</p>
+<p>Each scenario is visualized with:
+- <strong>θ(t)</strong> — how the angle changes over time
+- <strong>Phase diagram (θ, ω)</strong> — angular displacement vs angular velocity</p>
+<hr/>
+<h3 id="41-simple-undamped-pendulum-no-damping-no-forcing">4.1 🟢 Simple Undamped Pendulum (No Damping, No Forcing)</h3>
+<ul>
+<li>Parameters: <span class="arithmatex">\(b = 0\)</span>, <span class="arithmatex">\(A = 0\)</span></li>
+<li>The pendulum swings indefinitely with no energy loss.</li>
+<li>The motion is periodic and predictable.</li>
+</ul>
+<p><strong>Expected plots:</strong>
+- The angle <span class="arithmatex">\(\theta(t)\)</span> oscillates sinusoidally.  </p>
+<p><img alt="alt text" src="../image-21.png"/></p>
+<ul>
+<li>The phase diagram forms a closed ellipse, showing conservation of energy.  </li>
+</ul>
+<p><img alt="alt text" src="../image-22.png"/></p>
+<hr/>
+<h3 id="42-damped-pendulum-with-friction-no-external-force">4.2 🔵 Damped Pendulum (With Friction, No External Force)</h3>
+<ul>
+<li>Parameters: <span class="arithmatex">\(b &gt; 0\)</span>, <span class="arithmatex">\(A = 0\)</span></li>
+<li>The pendulum gradually loses energy due to damping.</li>
+<li>Oscillations decay over time until the system comes to rest.</li>
+</ul>
+<p><strong>Expected plots:</strong>
+- <span class="arithmatex">\(\theta(t)\)</span> decreases exponentially and eventually stops.  </p>
+<p><img alt="alt text" src="../image-23.png"/></p>
+<ul>
+<li>The phase diagram spirals toward the origin. </li>
+</ul>
+<p><img alt="alt text" src="../image-24.png"/></p>
+<hr/>
+<h3 id="43-forced-undamped-pendulum-no-friction-external-periodic-force">4.3 🟡 Forced Undamped Pendulum (No Friction, External Periodic Force)</h3>
+<ul>
+<li>Parameters: <span class="arithmatex">\(b = 0\)</span>, <span class="arithmatex">\(A &gt; 0\)</span></li>
+<li>The system is continuously driven by a periodic force.</li>
+<li>If driving frequency is close to the natural frequency, resonance may occur.</li>
+</ul>
+<p><strong>Expected plots:</strong>
+- <span class="arithmatex">\(\theta(t)\)</span> shows growing oscillations or steady amplitude depending on <span class="arithmatex">\(\omega\)</span>.  </p>
+<p><img alt="alt text" src="../image-25.png"/></p>
+<ul>
+<li>The phase diagram shows a stable closed loop or expanding spiral.  </li>
+</ul>
+<p><img alt="alt text" src="../image-26.png"/></p>
+<hr/>
+<h3 id="44-forced-damped-pendulum-with-friction-and-driving-force">4.4 🔴 Forced Damped Pendulum (With Friction and Driving Force)</h3>
+<p>We examine two interesting cases:</p>
+<h4 id="a-resonance-like-behavior">(a) Resonance-like Behavior</h4>
+<ul>
+<li>Parameters: <span class="arithmatex">\(b\)</span> small, <span class="arithmatex">\(A\)</span> moderate, <span class="arithmatex">\(\omega \approx \omega_0\)</span> </li>
+<li>System reaches steady oscillations with large amplitude.</li>
+</ul>
+<p><img alt="alt text" src="../image-28.png"/></p>
+<p><img alt="alt text" src="../image-29.png"/></p>
+<h4 id="b-chaotic-motion">(b) Chaotic Motion</h4>
+<ul>
+<li>Parameters: <span class="arithmatex">\(b\)</span> small, <span class="arithmatex">\(A\)</span> high, <span class="arithmatex">\(\omega\)</span> tuned for chaos  </li>
+<li>Sensitive to initial conditions, unpredictable long-term behavior.</li>
+</ul>
+<p><img alt="alt text" src="../image-30.png"/></p>
+<p><img alt="alt text" src="../image-31.png"/></p>
+<hr/>
+<h3 id="summary-of-results">Summary of Results</h3>
+<p>These simulations highlight how small changes in damping or forcing can drastically shift the pendulum’s behavior—from regular motion to chaos. The phase diagrams are especially useful in visualizing the transition from order to chaos.</p>
+<hr/>
+<p>Code</p>
+<hr/>
 <pre><code class="language-python">
-
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.integrate import odeint
+from scipy.integrate import solve_ivp
 
-# Pendulum differential equation
-def pendulum_equation(state, t, b, f, omega):
-    """
-    state = [theta, omega] (angle, angular velocity)
-    b = damping coefficient
-    f = forcing amplitude
-    omega = forcing frequency
-    """
-    theta, omega = state
-    dtheta_dt = omega
-    domega_dt = -np.sin(theta) - b*omega + f*np.cos(omega*t)
+# Constants
+g = 9.81
+L = 1.0
+omega0 = np.sqrt(g / L)
+
+# Differential equation
+def pendulum(t, y, b, A, omega):
+    theta, omega_ = y
+    dtheta_dt = omega_
+    domega_dt = -b * omega_ - omega0**2 * np.sin(theta) + A * np.cos(omega * t)
     return [dtheta_dt, domega_dt]
 
-# RK4 integration method
-def rk4_step(state, t, dt, b, f, omega):
-    k1 = np.array(pendulum_equation(state, t, b, f, omega))
-    k2 = np.array(pendulum_equation(state + 0.5*dt*k1, t + 0.5*dt, b, f, omega))
-    k3 = np.array(pendulum_equation(state + 0.5*dt*k2, t + 0.5*dt, b, f, omega))
-    k4 = np.array(pendulum_equation(state + dt*k3, t + dt, b, f, omega))
-    return state + (dt/6.0)*(k1 + 2*k2 + 2*k3 + k4)
+# Solver wrapper
+def simulate(b, A, omega, theta0=0.2, omega0_=0, t_max=30):
+    y0 = [theta0, omega0_]
+    t_eval = np.linspace(0, t_max, 3000)
+    sol = solve_ivp(pendulum, [0, t_max], y0, args=(b, A, omega), t_eval=t_eval, rtol=1e-8)
+    return sol.t, sol.y[0], sol.y[1]
 
-# Simulation function
-def simulate_pendulum(t_max, dt, theta0, omega0, b, f, omega):
-    t = np.arange(0, t_max, dt)
-    states = np.zeros((len(t), 2))
-    states[0] = [theta0, omega0]
+# Plotting function
+def plot_pendulum(t, theta, omega, title_prefix, fig_num):
+    plt.figure(fig_num)
+    plt.plot(t, theta)
+    plt.title(f'{title_prefix}: Angle vs Time')
+    plt.xlabel('Time (s)')
+    plt.ylabel('Angle (rad)')
+    plt.grid()
+    plt.savefig(f'{title_prefix}_theta_time.png')
 
-    for i in range(1, len(t)):
-        states[i] = rk4_step(states[i-1], t[i-1], dt, b, f, omega)
+    plt.figure(fig_num + 1)
+    plt.plot(theta, omega)
+    plt.title(f'{title_prefix}: Phase Diagram')
+    plt.xlabel('Angle (rad)')
+    plt.ylabel('Angular Velocity (rad/s)')
+    plt.grid()
+    plt.savefig(f'{title_prefix}_phase.png')
 
-    return t, states[:, 0], states[:, 1]
+# 1. Simple Pendulum (no damping, no forcing)
+t, th, om = simulate(b=0, A=0, omega=0)
+plot_pendulum(t, th, om, 'Simple_Pendulum', 1)
 
-# Parameters
-t_max = 100.0
-dt = 0.05
-theta0 = 0.1
-omega0 = 0.0
+# 2. Damped Pendulum (damping, no forcing)
+t, th, om = simulate(b=0.2, A=0, omega=0)
+plot_pendulum(t, th, om, 'Damped_Pendulum', 3)
 
-# Different simulation cases
-cases = [
-    {"b": 0.1, "f": 0.0, "omega": 0.0, "label": "Undamped"},
-    {"b": 0.5, "f": 0.0, "omega": 0.0, "label": "Damped"},
-    {"b": 0.5, "f": 0.5, "omega": 1.0, "label": "Forced"}
-]
+# 3. Forced Undamped Pendulum (no damping, with driving)
+t, th, om = simulate(b=0, A=1.2, omega=omega0)
+plot_pendulum(t, th, om, 'Forced_Undamped', 5)
 
-# 1. Time series plot
-plt.figure(figsize=(12, 8))
-for case in cases:
-    t, theta, omega = simulate_pendulum(t_max, dt, theta0, omega0, 
-                                      case["b"], case["f"], case["omega"])
-    plt.plot(t, theta, label=case["label"])
-plt.title("Pendulum Motion")
-plt.xlabel("Time")
-plt.ylabel("Angle (rad)")
-plt.legend()
-plt.grid(True)
+# 4a. Forced Damped Pendulum - Resonance
+t, th, om = simulate(b=0.1, A=1.2, omega=omega0)
+plot_pendulum(t, th, om, 'Forced_Damped_Resonance', 7)
 
-# 2. Phase portrait
-plt.figure(figsize=(12, 8))
-for case in cases:
-    t, theta, omega = simulate_pendulum(t_max, dt, theta0, omega0, 
-                                      case["b"], case["f"], case["omega"])
-    plt.plot(theta, omega, label=case["label"], alpha=0.5)
-plt.title("Phase Portrait")
-plt.xlabel("Angle (rad)")
-plt.ylabel("Angular Velocity (rad/s)")
-plt.legend()
-plt.grid(True)
+# 4b. Forced Damped Pendulum - Chaotic (longer sim, more sensitivity)
+t, th, om = simulate(b=0.2, A=1.5, omega=0.8 * omega0, theta0=1.5, t_max=60)
+plot_pendulum(t, th, om, 'Forced_Damped_Chaos', 9)
 
-# 3. Poincaré section
-plt.figure(figsize=(12, 8))
-for case in cases:
-    t, theta, omega = simulate_pendulum(t_max, dt, theta0, omega0, 
-                                      case["b"], case["f"], case["omega"])
-    # Sample at forcing period
-    period = 2*np.pi/case["omega"] if case["omega"] != 0 else t_max
-    sample_indices = np.arange(0, len(t), int(period/dt))
-    plt.scatter(theta[sample_indices], omega[sample_indices], 
-                label=case["label"], s=10)
-plt.title("Poincaré Section")
-plt.xlabel("Angle (rad)")
-plt.ylabel("Angular Velocity (rad/s)")
-plt.legend()
-plt.grid(True)
-
-# 4. Bifurcation diagram
-plt.figure(figsize=(12, 8))
-f_values = np.linspace(0, 1.5, 200)
-bifurcation_points = []
-
-for f in f_values:
-    t, theta, omega = simulate_pendulum(t_max, dt, theta0, omega0, 
-                                      0.5, f, 1.0)
-    # Take samples from second half of simulation to avoid transients
-    period = 2*np.pi/1.0
-    sample_indices = np.arange(int(len(t)/2), len(t), int(period/dt))
-    bifurcation_points.extend(theta[sample_indices])
-
-plt.scatter([f_values[i//len(sample_indices)] 
-            for i in range(len(bifurcation_points))], 
-            bifurcation_points, s=1)
-plt.title("Bifurcation Diagram")
-plt.xlabel("Forcing Amplitude")
-plt.ylabel("Angle (rad)")
-plt.grid(True)
-
-plt.tight_layout()
 plt.show()
 
-# Print some basic analysis
-for case in cases:
-    t, theta, omega = simulate_pendulum(t_max, dt, theta0, omega0, 
-                                      case["b"], case["f"], case["omega"])
-    print(f"\n{case['label']} Case:")
-    print(f"Max amplitude: {np.max(np.abs(theta)):.3f} rad")
-    print(f"Final energy: {0.5*omega[-1]**2 + (1-np.cos(theta[-1])):.3f}")
 
 </code></pre>
-<p><img alt="alt text" src="../image-3.png"/></p>
-<p><img alt="alt text" src="../image-5.png"/></p>
-<p><img alt="alt text" src="../image-7.png"/></p>
-<h2 id="_1"><img alt="alt text" src="../image-8.png"/></h2>
+<hr/>
 <h2 id="5-conclusion">5. Conclusion</h2>
 <p>The forced damped pendulum is a <strong>powerful model</strong> for understanding real-world oscillatory systems. By adjusting damping, forcing, and initial conditions, we can explore <strong>periodic, resonant, and chaotic behaviors</strong>. Using <strong>numerical simulations and phase-space analysis</strong>, we can study transitions from simple oscillations to <strong>chaos</strong>, with applications in <strong>engineering, physics, and biomechanics</strong>.</p>
 <p>This report combines <strong>theoretical derivations, computational techniques, and real-world applications</strong> to provide a deep understanding of the system.</p>
