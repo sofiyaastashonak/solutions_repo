@@ -250,6 +250,7 @@ plt.show()
 
 ![alt text](image-13.png)
 
+[colablink](https://colab.research.google.com/drive/1V_1Xii8wkKV0EV4qgVnc4VRjdV7MBm5H?usp=sharing) 
 ---
 
 ## **8. Conclusion**
