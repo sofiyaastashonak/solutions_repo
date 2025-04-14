@@ -276,10 +276,11 @@ plot_pendulum(t, th, om, 'Forced_Damped_Resonance', 7)
 t, th, om = simulate(b=0.2, A=1.5, omega=0.8 * omega0, theta0=1.5, t_max=60)
 plot_pendulum(t, th, om, 'Forced_Damped_Chaos', 9)
 
-plt.show()
-
+---
 
 ```
+
+[colablink](plt.show(https://colab.research.google.com/drive/1NVN8YdCX98eAJqQoMIjFALPPSyaacXC3?usp=sharing)) 
 
 ---
 
