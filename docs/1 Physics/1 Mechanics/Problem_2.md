@@ -10,8 +10,10 @@ $$\frac{d^2\theta}{dt^2} + \gamma \frac{d\theta}{dt} + \omega_0^2\sin\theta = A\
 where:  
 - $\theta$ = angular displacement (radians)  
 - $\gamma$ = damping coefficient (determines energy loss over time)  
-- $\omega_0$ = natural frequency of the pendulum, given by:  
+- $\omega_0$ = natural frequency of the pendulum, given by: 
+
 $$\omega_0^2=\frac{g}{L}$$  
+
 where $g$ is the acceleration due to gravity and $L$ is the pendulum length  
 - $A$ = amplitude of the external driving force  
 - $\omega$ = driving frequency of the external force  
