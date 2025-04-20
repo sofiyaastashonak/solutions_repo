@@ -157,21 +157,10 @@ plt.show()
 
 📈 **Insert Here: Log-Log Plot of $T$ vs $r$**
 
----
-
-## ✅ 4. Graphical Representations
-
-The report includes the following required and optional visualizations:
-
-- ✅ **Real-world $T^2$ vs $r^3$ plot** — based on Solar System data  
-- ✅ **Numerical model $T^2$ vs $r^3$ plot** — confirms linearity  
-- ✅ **Log-log plot of $T$ vs $r$** — slope should be ≈ 1.5  
-- ⚙️ Optional: Orbit animations or 3D visualizations  
-- 🔍 Optional: Comparison of orbits with different masses  
 
 ---
 
-## ✅ 5. Discussion and Extensions
+## ✅ 4. Discussion and Extensions
 
 ### 🔹 Elliptical Orbits  
 
@@ -192,11 +181,12 @@ Newton extended Kepler’s laws by showing they are consequences of the inverse-
 
 ---
 
-## ✅ 6. Application: Estimate Mass of Earth and Sun
+## ✅ 5. Application: Estimate Mass of Earth and Sun
 
 ### 🔹 Estimate Earth’s Mass from Moon’s Orbit  
 
-$$T = 2.36 \times 10^6\ \text{s}, \quad r = 3.844 \times 10^8\ \text{m}$$  
+$$T = 2.36 \times 10^6\ \text{s}, \quad r = 3.844 \times 10^8\ \text{m}$$
+
 $$M = \frac{4\pi^2 r^3}{G T^2}$$  
 
 📍 **Insert this code in a code cell**
@@ -228,7 +218,7 @@ print(f"Estimated Sun mass: {M_sun:.2e} kg")
 
 ---
 
-## ✅ 7. Final Deliverables
+## ✅ 6. Final Deliverables
 
 This report includes:
 
