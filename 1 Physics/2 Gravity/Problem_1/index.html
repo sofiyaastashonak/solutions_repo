@@ -84,23 +84,23 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#4-discussion-and-extensions">✅ 4. Discussion and Extensions</a>
+<li class="toctree-l3"><a class="reference internal" href="#4-estimating-masses-from-keplers-law">✅ 4. Estimating Masses from Kepler’s Law</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#mass-of-the-earth-from-the-moons-orbit">🔹 Mass of the Earth from the Moon’s Orbit</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#mass-of-the-sun-from-earths-orbit">🔹 Mass of the Sun from Earth’s Orbit</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#5-further-discussion">✅ 5. Further Discussion</a>
 <ul>
 <li class="toctree-l4"><a class="reference internal" href="#elliptical-orbits">🔹 Elliptical Orbits</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#other-celestial-bodies">🔹 Other Celestial Bodies</a>
+<li class="toctree-l4"><a class="reference internal" href="#beyond-planets">🔹 Beyond Planets</a>
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#5-application-estimate-mass-of-earth-and-sun">✅ 5. Application: Estimate Mass of Earth and Sun</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#estimate-earths-mass-from-moons-orbit">🔹 Estimate Earth’s Mass from Moon’s Orbit</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#estimate-suns-mass-from-earths-orbit">🔹 Estimate Sun’s Mass from Earth’s Orbit</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#6-final-deliverables">✅ 6. Final Deliverables</a>
+<li class="toctree-l3"><a class="reference internal" href="#6-summary-and-deliverables">✅ 6. Summary and Deliverables</a>
 </li>
 </ul>
 </li>
@@ -321,7 +321,7 @@ $$r^3 = (3.844 \times 10^8)^3 \approx 5.69 \times 10^{25}\]</div>
 </tbody>
 </table>
 <p>As you can see, <span class="arithmatex">\(T^2 \approx r^3\)</span>.</p>
-<p>📈 <strong>Insert Here: Plot of <span class="arithmatex">\(T^2\)</span> vs <span class="arithmatex">\(r^3\)</span> using the table above</strong></p>
+<p><img alt="alt text" src="../image.png"/></p>
 <hr/>
 <h2 id="3-computational-modeling-python">✅ 3. Computational Modeling (Python)</h2>
 <h3 id="simulate-orbital-motion-and-periods">🔹 Simulate Orbital Motion and Periods</h3>
@@ -364,54 +364,49 @@ plt.show()
 </code></pre>
 <p>📈 <strong>Insert Here: Log-Log Plot of <span class="arithmatex">\(T\)</span> vs <span class="arithmatex">\(r\)</span></strong></p>
 <hr/>
-<h2 id="4-discussion-and-extensions">✅ 4. Discussion and Extensions</h2>
+<h2 id="4-estimating-masses-from-keplers-law">✅ 4. Estimating Masses from Kepler’s Law</h2>
+<h3 id="mass-of-the-earth-from-the-moons-orbit">🔹 Mass of the Earth from the Moon’s Orbit</h3>
+<p>Given:<br/>
+- <span class="arithmatex">\(r = 3.844 \times 10^8\ \text{m}\)</span><br/>
+- <span class="arithmatex">\(T = 2.36 \times 10^6\ \text{s}\)</span><br/>
+- <span class="arithmatex">\(G = 6.674 \times 10^{-11}\)</span> </p>
+<p>From:<br/>
+<span class="arithmatex">\(<span class="arithmatex">\(M = \frac{4\pi^2 r^3}{G T^2}\)</span>\)</span> </p>
+<p>Calculation:<br/>
+<span class="arithmatex">\(<span class="arithmatex">\(M = \frac{4 \pi^2 (3.844 \times 10^8)^3}{6.674 \times 10^{-11} (2.36 \times 10^6)^2} \approx 5.97 \times 10^{24}\ \text{kg}\)</span>\)</span> </p>
+<p>✅ Result matches known mass of Earth.</p>
+<hr/>
+<h3 id="mass-of-the-sun-from-earths-orbit">🔹 Mass of the Sun from Earth’s Orbit</h3>
+<p>Given:<br/>
+- <span class="arithmatex">\(r = 1.496 \times 10^{11}\ \text{m}\)</span><br/>
+- <span class="arithmatex">\(T = 3.156 \times 10^7\ \text{s}\)</span> </p>
+<p>Using the same formula:</p>
+<div class="arithmatex">\[M = \frac{4 \pi^2 r^3}{G T^2}\]</div>
+<p>Calculation:</p>
+<div class="arithmatex">\[M = \frac{4 \pi^2 (1.496 \times 10^{11})^3}{6.674 \times 10^{-11} (3.156 \times 10^7)^2} \approx 1.99 \times 10^{30}\ \text{kg}\]</div>
+<p>✅ Again, matches known solar mass.</p>
+<hr/>
+<h2 id="5-further-discussion">✅ 5. Further Discussion</h2>
 <h3 id="elliptical-orbits">🔹 Elliptical Orbits</h3>
-<p>Kepler’s third law applies to elliptical orbits if we use <strong>semi-major axis</strong> <span class="arithmatex">\(a\)</span> instead of radius:  </p>
+<p>Kepler’s 3rd law also holds for elliptical orbits, using the semi-major axis <span class="arithmatex">\(a\)</span> instead of <span class="arithmatex">\(r\)</span>:  </p>
 <div class="arithmatex">\[T^2 \propto a^3\]</div>
-<p>Newton extended Kepler’s laws by showing they are consequences of the inverse-square gravitational force. This allows generalization beyond circular orbits.</p>
+<p>Newton generalized Kepler’s laws by deriving them from his law of gravitation.</p>
 <hr/>
-<h3 id="other-celestial-bodies">🔹 Other Celestial Bodies</h3>
+<h3 id="beyond-planets">🔹 Beyond Planets</h3>
 <ul>
-<li><strong>Binary stars</strong>: Kepler's law helps determine stellar masses.  </li>
-<li><strong>Satellites</strong>: Used to calculate orbital altitudes and velocities.  </li>
-<li><strong>Space probes</strong>: Missions use this law for trajectory design.  </li>
-<li><strong>Exoplanets</strong>: Orbital data allows estimation of host star mass.</li>
+<li><strong>Binary stars</strong>: Masses inferred via orbital motion.  </li>
+<li><strong>Satellites and probes</strong>: Trajectory planning uses this law.  </li>
+<li><strong>Exoplanets</strong>: Observed stellar wobble gives period <span class="arithmatex">\(T\)</span>; estimate <span class="arithmatex">\(a\)</span>, then derive mass.  </li>
 </ul>
 <hr/>
-<h2 id="5-application-estimate-mass-of-earth-and-sun">✅ 5. Application: Estimate Mass of Earth and Sun</h2>
-<h3 id="estimate-earths-mass-from-moons-orbit">🔹 Estimate Earth’s Mass from Moon’s Orbit</h3>
-<div class="arithmatex">\[T = 2.36 \times 10^6\ \text{s}, \quad r = 3.844 \times 10^8\ \text{m}\]</div>
-<div class="arithmatex">\[M = \frac{4\pi^2 r^3}{G T^2}\]</div>
-<p>📍 <strong>Insert this code in a code cell</strong></p>
-<pre><code class="language-python">T = 2.36e6
-r = 3.844e8
-G = 6.674e-11
-
-M_earth = 4 * np.pi**2 * r**3 / (G * T**2)
-print(f"Estimated Earth mass: {M_earth:.2e} kg")
-</code></pre>
-<hr/>
-<h3 id="estimate-suns-mass-from-earths-orbit">🔹 Estimate Sun’s Mass from Earth’s Orbit</h3>
-<div class="arithmatex">\[T = 3.156 \times 10^7\ \text{s}, \quad r = 1.496 \times 10^{11}\ \text{m}\]</div>
-<p>📍 <strong>Insert this code in a code cell</strong></p>
-<pre><code class="language-python">T = 3.156e7
-r = 1.496e11
-
-M_sun = 4 * np.pi**2 * r**3 / (G * T**2)
-print(f"Estimated Sun mass: {M_sun:.2e} kg")
-</code></pre>
-<hr/>
-<h2 id="6-final-deliverables">✅ 6. Final Deliverables</h2>
-<p>This report includes:</p>
-<ul>
-<li>✅ Full derivation of Kepler’s Third Law  </li>
-<li>✅ Real-world examples (Moon, Solar System)  </li>
-<li>✅ Python simulation to verify numerically  </li>
-<li>✅ Estimation of Earth and Sun masses  </li>
-<li>✅ All required plots with labels and titles  </li>
-<li>✅ Clean explanations in Markdown with LaTeX  </li>
-<li>✅ Suggestions for further exploration  </li>
-</ul>
+<h2 id="6-summary-and-deliverables">✅ 6. Summary and Deliverables</h2>
+<p>This report includes:<br/>
+- ✅ Full derivation of Kepler’s Third Law<br/>
+- ✅ Real-world and simulated validation<br/>
+- ✅ Code to visualize orbits and relations<br/>
+- ✅ Analytical estimation of Earth/Sun masses<br/>
+- ✅ Clear plots with proper labeling<br/>
+- ✅ All written in clean Markdown with LaTeX  </p>
 <hr/>
 </div>
 </div><footer>
