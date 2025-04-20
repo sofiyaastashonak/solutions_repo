@@ -84,9 +84,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#4-graphical-representations">✅ 4. Graphical Representations</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#5-discussion-and-extensions">✅ 5. Discussion and Extensions</a>
+<li class="toctree-l3"><a class="reference internal" href="#4-discussion-and-extensions">✅ 4. Discussion and Extensions</a>
 <ul>
 <li class="toctree-l4"><a class="reference internal" href="#elliptical-orbits">🔹 Elliptical Orbits</a>
 </li>
@@ -94,7 +92,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#6-application-estimate-mass-of-earth-and-sun">✅ 6. Application: Estimate Mass of Earth and Sun</a>
+<li class="toctree-l3"><a class="reference internal" href="#5-application-estimate-mass-of-earth-and-sun">✅ 5. Application: Estimate Mass of Earth and Sun</a>
 <ul>
 <li class="toctree-l4"><a class="reference internal" href="#estimate-earths-mass-from-moons-orbit">🔹 Estimate Earth’s Mass from Moon’s Orbit</a>
 </li>
@@ -102,7 +100,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#7-final-deliverables">✅ 7. Final Deliverables</a>
+<li class="toctree-l3"><a class="reference internal" href="#6-final-deliverables">✅ 6. Final Deliverables</a>
 </li>
 </ul>
 </li>
@@ -366,17 +364,7 @@ plt.show()
 </code></pre>
 <p>📈 <strong>Insert Here: Log-Log Plot of <span class="arithmatex">\(T\)</span> vs <span class="arithmatex">\(r\)</span></strong></p>
 <hr/>
-<h2 id="4-graphical-representations">✅ 4. Graphical Representations</h2>
-<p>The report includes the following required and optional visualizations:</p>
-<ul>
-<li>✅ <strong>Real-world <span class="arithmatex">\(T^2\)</span> vs <span class="arithmatex">\(r^3\)</span> plot</strong> — based on Solar System data  </li>
-<li>✅ <strong>Numerical model <span class="arithmatex">\(T^2\)</span> vs <span class="arithmatex">\(r^3\)</span> plot</strong> — confirms linearity  </li>
-<li>✅ <strong>Log-log plot of <span class="arithmatex">\(T\)</span> vs <span class="arithmatex">\(r\)</span></strong> — slope should be ≈ 1.5  </li>
-<li>⚙️ Optional: Orbit animations or 3D visualizations  </li>
-<li>🔍 Optional: Comparison of orbits with different masses  </li>
-</ul>
-<hr/>
-<h2 id="5-discussion-and-extensions">✅ 5. Discussion and Extensions</h2>
+<h2 id="4-discussion-and-extensions">✅ 4. Discussion and Extensions</h2>
 <h3 id="elliptical-orbits">🔹 Elliptical Orbits</h3>
 <p>Kepler’s third law applies to elliptical orbits if we use <strong>semi-major axis</strong> <span class="arithmatex">\(a\)</span> instead of radius:  </p>
 <div class="arithmatex">\[T^2 \propto a^3\]</div>
@@ -390,10 +378,10 @@ plt.show()
 <li><strong>Exoplanets</strong>: Orbital data allows estimation of host star mass.</li>
 </ul>
 <hr/>
-<h2 id="6-application-estimate-mass-of-earth-and-sun">✅ 6. Application: Estimate Mass of Earth and Sun</h2>
+<h2 id="5-application-estimate-mass-of-earth-and-sun">✅ 5. Application: Estimate Mass of Earth and Sun</h2>
 <h3 id="estimate-earths-mass-from-moons-orbit">🔹 Estimate Earth’s Mass from Moon’s Orbit</h3>
-<div class="arithmatex">\[T = 2.36 \times 10^6\ \text{s}, \quad r = 3.844 \times 10^8\ \text{m}$$  
-$$M = \frac{4\pi^2 r^3}{G T^2}\]</div>
+<div class="arithmatex">\[T = 2.36 \times 10^6\ \text{s}, \quad r = 3.844 \times 10^8\ \text{m}\]</div>
+<div class="arithmatex">\[M = \frac{4\pi^2 r^3}{G T^2}\]</div>
 <p>📍 <strong>Insert this code in a code cell</strong></p>
 <pre><code class="language-python">T = 2.36e6
 r = 3.844e8
@@ -413,7 +401,7 @@ M_sun = 4 * np.pi**2 * r**3 / (G * T**2)
 print(f"Estimated Sun mass: {M_sun:.2e} kg")
 </code></pre>
 <hr/>
-<h2 id="7-final-deliverables">✅ 7. Final Deliverables</h2>
+<h2 id="6-final-deliverables">✅ 6. Final Deliverables</h2>
 <p>This report includes:</p>
 <ul>
 <li>✅ Full derivation of Kepler’s Third Law  </li>
