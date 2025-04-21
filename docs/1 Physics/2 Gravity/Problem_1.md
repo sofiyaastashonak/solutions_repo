@@ -101,6 +101,20 @@ Their ratio is nearly constant, consistent with the law.
 
 As you can see, $T^2 \approx r^3$.
 
+Below are real values for several planets in the solar system, expressed in **meters** and **seconds**, along with calculated $T^2$ and $r^3$ values:
+
+| Planet   | $r$ (m)             | $T$ (s)            | $T^2$ (s²)           | $r^3$ (m³)             |
+|----------|---------------------|--------------------|-----------------------|------------------------|
+| Mercury  | 5.79×10¹⁰           | 7.60×10⁶           | 5.78×10¹³             | 1.94×10³²              |
+| Venus    | 1.08×10¹¹           | 1.94×10⁷           | 3.76×10¹⁴             | 1.26×10³³              |
+| Earth    | 1.496×10¹¹          | 3.156×10⁷          | 9.96×10¹⁴             | 3.35×10³³              |
+| Mars     | 2.28×10¹¹           | 5.93×10⁷           | 3.52×10¹⁵             | 1.18×10³⁴              |
+| Jupiter  | 7.78×10¹¹           | 3.74×10⁸           | 1.40×10¹⁷             | 4.71×10³⁵              |
+
+✅ These values are used to plot the Kepler’s Third Law relationship in **SI units**:  
+$T^2 = \dfrac{4 \pi^2}{G M} r^3$
+
+
 ![alt text](image.png)
 
 ---
@@ -136,7 +150,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-📈 **Insert Here: Simulated Plot of $T^2$ vs $r^3$**
+![alt text](image-1.png)
 
 ---
 
@@ -154,8 +168,7 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 ```
-
-📈 **Insert Here: Log-Log Plot of $T$ vs $r$**
+![alt text](image-2.png)
 
 
 ---
