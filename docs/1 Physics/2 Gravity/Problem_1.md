@@ -179,10 +179,12 @@ Given:
 - $T = 2.36 \times 10^6\ \text{s}$  
 - $G = 6.674 \times 10^{-11}$  
 
-From:  
+From: 
+
 $$M = \frac{4\pi^2 r^3}{G T^2}$$  
 
 Calculation:  
+
 $$M = \frac{4 \pi^2 (3.844 \times 10^8)^3}{6.674 \times 10^{-11} (2.36 \times 10^6)^2} \approx 5.97 \times 10^{24}\ \text{kg}$$  
 
 ✅ Result matches known mass of Earth.
