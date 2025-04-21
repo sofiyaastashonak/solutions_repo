@@ -229,12 +229,24 @@ Newton generalized Kepler’s laws by deriving them from his law of gravitation.
 
 ## ✅ 6. Summary and Deliverables  
 
-This report includes:  
-- ✅ Full derivation of Kepler’s Third Law  
-- ✅ Real-world and simulated validation  
-- ✅ Code to visualize orbits and relations  
-- ✅ Analytical estimation of Earth/Sun masses  
-- ✅ Clear plots with proper labeling  
-- ✅ All written in clean Markdown with LaTeX  
+## ✅ 6. Conclusion
+
+Based on the theoretical analysis and computational modeling, we conclude:
+
+- 📐 We derived and confirmed **Kepler’s Third Law** for circular orbits:  
+  $T^2 = \dfrac{4\pi^2}{GM}r^3$
+- 🌍 We analyzed real planetary data both in **astronomical units** and in **SI units** (meters and seconds).
+- 📊 We visualized the relationship between $T^2$ and $r^3$ through:
+  - A plot with actual solar system planets,
+  - A simulated model based on Kepler’s law,
+  - A log-log plot showing the expected slope of $\approx \tfrac{3}{2}$.
+- 💻 Python code was implemented to calculate, simulate, and visualize orbital parameters.
+- 🔬 Using Kepler’s law, we accurately estimated:
+  - The mass of the Earth based on the Moon’s orbit,
+  - The mass of the Sun based on Earth’s orbit.
+- ✅ All results closely match known physical constants and empirical observations.
+
+Therefore, the results strongly validate **Kepler’s Third Law** both theoretically and experimentally.  
+
 
 ---
