@@ -321,6 +321,57 @@ $$r^3 = (3.844 \times 10^8)^3 \approx 5.69 \times 10^{25}\]</div>
 </tbody>
 </table>
 <p>As you can see, <span class="arithmatex">\(T^2 \approx r^3\)</span>.</p>
+<p>Below are real values for several planets in the solar system, expressed in <strong>meters</strong> and <strong>seconds</strong>, along with calculated <span class="arithmatex">\(T^2\)</span> and <span class="arithmatex">\(r^3\)</span> values:</p>
+<table>
+<thead>
+<tr>
+<th>Planet</th>
+<th><span class="arithmatex">\(r\)</span> (m)</th>
+<th><span class="arithmatex">\(T\)</span> (s)</th>
+<th><span class="arithmatex">\(T^2\)</span> (s²)</th>
+<th><span class="arithmatex">\(r^3\)</span> (m³)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mercury</td>
+<td>5.79×10¹⁰</td>
+<td>7.60×10⁶</td>
+<td>5.78×10¹³</td>
+<td>1.94×10³²</td>
+</tr>
+<tr>
+<td>Venus</td>
+<td>1.08×10¹¹</td>
+<td>1.94×10⁷</td>
+<td>3.76×10¹⁴</td>
+<td>1.26×10³³</td>
+</tr>
+<tr>
+<td>Earth</td>
+<td>1.496×10¹¹</td>
+<td>3.156×10⁷</td>
+<td>9.96×10¹⁴</td>
+<td>3.35×10³³</td>
+</tr>
+<tr>
+<td>Mars</td>
+<td>2.28×10¹¹</td>
+<td>5.93×10⁷</td>
+<td>3.52×10¹⁵</td>
+<td>1.18×10³⁴</td>
+</tr>
+<tr>
+<td>Jupiter</td>
+<td>7.78×10¹¹</td>
+<td>3.74×10⁸</td>
+<td>1.40×10¹⁷</td>
+<td>4.71×10³⁵</td>
+</tr>
+</tbody>
+</table>
+<p>✅ These values are used to plot the Kepler’s Third Law relationship in <strong>SI units</strong>:<br/>
+<span class="arithmatex">\(T^2 = \dfrac{4 \pi^2}{G M} r^3\)</span></p>
 <p><img alt="alt text" src="../image.png"/></p>
 <hr/>
 <h2 id="3-computational-modeling-python">✅ 3. Computational Modeling (Python)</h2>
@@ -349,7 +400,7 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 </code></pre>
-<p>📈 <strong>Insert Here: Simulated Plot of <span class="arithmatex">\(T^2\)</span> vs <span class="arithmatex">\(r^3\)</span></strong></p>
+<p><img alt="alt text" src="../image-1.png"/></p>
 <hr/>
 <h3 id="log-log-representation">🔹 Log-Log Representation</h3>
 <p>📍 <strong>Insert this code in a code cell</strong></p>
@@ -362,7 +413,7 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 </code></pre>
-<p>📈 <strong>Insert Here: Log-Log Plot of <span class="arithmatex">\(T\)</span> vs <span class="arithmatex">\(r\)</span></strong></p>
+<p><img alt="alt text" src="../image-2.png"/></p>
 <hr/>
 <h2 id="4-estimating-masses-from-keplers-law">✅ 4. Estimating Masses from Kepler’s Law</h2>
 <h3 id="mass-of-the-earth-from-the-moons-orbit">🔹 Mass of the Earth from the Moon’s Orbit</h3>
