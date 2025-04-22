@@ -148,6 +148,8 @@ plt.show()
 
 ![alt text](image-1.png)
 
+## [ColabLink](https://colab.research.google.com/drive/16lKr41b_9RrS4Itg9NxuhzB1jZxYrmUN?usp=sharing)
+
 ---
 
 ### 🔹 Log-Log Representation
