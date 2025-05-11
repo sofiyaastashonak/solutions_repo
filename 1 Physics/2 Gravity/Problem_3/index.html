@@ -60,6 +60,30 @@
 </li>
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 3</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#trajectories-of-a-freely-released-payload-near-earth">Trajectories of a Freely Released Payload Near Earth</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#1-motivation">✅ 1. Motivation</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#2-physical-background">✅ 2. Physical Background</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#3-analytical-conditions-for-different-trajectories">✅ 3. Analytical Conditions for Different Trajectories</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#4-initial-conditions">✅ 4. Initial Conditions</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#5-simulation-of-payload-trajectories">✅ 5. Simulation of Payload Trajectories</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#python-code-to-simulate-and-plot">🔹 Python Code to Simulate and Plot:</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#6-numerical-simulation-and-visualization">✅ 6. Numerical Simulation and Visualization</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#7-analysis-of-trajectory-types">✅ 7. Analysis of Trajectory Types</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#8-importance-in-space-exploration">✅ 8. Importance in Space Exploration</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#9-conclusion">✅ 9. Conclusion</a>
+</li>
 </ul>
 </li>
 </ul>
@@ -172,6 +196,211 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-3">Problem 3</h1>
+<h2 id="trajectories-of-a-freely-released-payload-near-earth">Trajectories of a Freely Released Payload Near Earth</h2>
+<hr/>
+<h2 id="1-motivation">✅ 1. Motivation</h2>
+<p>Understanding the motion of a payload released from a moving spacecraft is crucial in space exploration. The trajectory it follows depends on the initial velocity, position, and the influence of gravity. This scenario is not only a classical mechanics problem but also relevant for applications such as:</p>
+<ul>
+<li>Orbital insertion and satellite deployment  </li>
+<li>Reentry trajectories of spacecraft  </li>
+<li>Escape missions or planetary flybys  </li>
+</ul>
+<p>In this report, we analyze and simulate the various types of trajectories—elliptical, parabolic, and hyperbolic—that a payload might follow after release, and visualize their outcomes based on different initial velocities.</p>
+<hr/>
+<h2 id="2-physical-background">✅ 2. Physical Background</h2>
+<p>When a mass is released near a planet, it experiences gravitational acceleration according to Newton's law of universal gravitation:</p>
+<div class="arithmatex">\[F = \frac{G M m}{r^2}\]</div>
+<p>From this, the gravitational acceleration at distance <span class="arithmatex">\(r\)</span> is:</p>
+<div class="arithmatex">\[a = \frac{F}{m} = \frac{G M}{r^2}\]</div>
+<p>The trajectory depends on the total energy of the payload:</p>
+<ul>
+<li><strong>Elliptical orbit:</strong> <span class="arithmatex">\(E &lt; 0\)</span> </li>
+<li><strong>Parabolic escape:</strong> <span class="arithmatex">\(E = 0\)</span> </li>
+<li><strong>Hyperbolic escape:</strong> <span class="arithmatex">\(E &gt; 0\)</span> </li>
+</ul>
+<p>Where total energy is given by:</p>
+<div class="arithmatex">\[E = \frac{1}{2}mv^2 - \frac{G M m}{r}\]</div>
+<p>And <span class="arithmatex">\(v\)</span> is the velocity at distance <span class="arithmatex">\(r\)</span>.</p>
+<hr/>
+<h2 id="3-analytical-conditions-for-different-trajectories">✅ 3. Analytical Conditions for Different Trajectories</h2>
+<p>At a given altitude, the critical velocities determine what kind of trajectory the payload will follow. For Earth, at radius <span class="arithmatex">\(r = R + h\)</span>, where <span class="arithmatex">\(h\)</span> is the altitude and <span class="arithmatex">\(R\)</span> is Earth's radius:</p>
+<ul>
+<li>
+<p><strong>Orbital velocity (First cosmic velocity):</strong><br/>
+<span class="arithmatex">\(<span class="arithmatex">\(v_1 = \sqrt{\frac{G M}{r}}\)</span>\)</span> </p>
+</li>
+<li>
+<p><strong>Escape velocity (Second cosmic velocity):</strong><br/>
+<span class="arithmatex">\(<span class="arithmatex">\(v_2 = \sqrt{\frac{2 G M}{r}}\)</span>\)</span> </p>
+</li>
+<li>
+<p><strong>Velocity to escape Sun from Earth orbit (Third cosmic velocity, approx):</strong><br/>
+<span class="arithmatex">\(<span class="arithmatex">\(v_3 \approx \sqrt{v_2^2 + v_{orbit,sun}^2}\)</span>\)</span> </p>
+</li>
+</ul>
+<p>We focus here on the first two, since third cosmic velocity is better suited for interplanetary scale.</p>
+<hr/>
+<h2 id="4-initial-conditions">✅ 4. Initial Conditions</h2>
+<ul>
+<li>Gravitational constant: <span class="arithmatex">\(G = 6.674 \times 10^{-11}\ \text{m}^3/\text{kg/s}^2\)</span> </li>
+<li>Mass of Earth: <span class="arithmatex">\(M = 5.972 \times 10^{24}\ \text{kg}\)</span> </li>
+<li>Radius of Earth: <span class="arithmatex">\(R = 6.371 \times 10^6\ \text{m}\)</span> </li>
+<li>Altitude: <span class="arithmatex">\(h = 800\ \text{km} = 8.0 \times 10^5\ \text{m}\)</span> </li>
+<li>Position: <span class="arithmatex">\(r = R + h = 7.171 \times 10^6\ \text{m}\)</span> </li>
+</ul>
+<p>Now we calculate the two key velocities at this altitude:</p>
+<ul>
+<li><span class="arithmatex">\(v_1 = \sqrt{\frac{G M}{r}} \approx 7.45\ \text{km/s}\)</span> </li>
+<li><span class="arithmatex">\(v_2 = \sqrt{2} \cdot v_1 \approx 10.54\ \text{km/s}\)</span> </li>
+</ul>
+<hr/>
+<h2 id="5-simulation-of-payload-trajectories">✅ 5. Simulation of Payload Trajectories</h2>
+<p>We simulate trajectories for a payload released at an altitude of 800 km with initial velocities from 5 km/s to 13 km/s, using numerical integration.  </p>
+<h3 id="python-code-to-simulate-and-plot">🔹 Python Code to Simulate and Plot:</h3>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import solve_ivp
+
+# Constants
+G = 6.67430e-11  # m^3 kg^-1 s^-2
+M = 5.972e24     # kg
+R_earth = 6371e3 # m
+h = 800e3        # altitude in meters
+r0 = R_earth + h # initial distance from center of Earth
+
+# Time span for simulation
+t_span = (0, 10000)
+t_eval = np.linspace(*t_span, 5000)
+
+# Gravitational acceleration function
+def gravity(t, y):
+    x, y_pos, vx, vy = y
+    r = np.sqrt(x**2 + y_pos**2)
+    ax = -G * M * x / r**3
+    ay = -G * M * y_pos / r**3
+    return [vx, vy, ax, ay]
+
+# Initial position
+x0, y0 = r0, 0
+
+# Velocities from 5 to 13 km/s
+velocities = np.arange(5e3, 13.5e3, 0.5e3)
+
+# Plot
+fig, ax = plt.subplots(figsize=(8, 8))
+earth = plt.Circle((0, 0), R_earth, color='blue', label='Earth')
+ax.add_patch(earth)
+
+for v0 in velocities:
+    y_init = [x0, y0, 0, v0]
+    sol = solve_ivp(gravity, t_span, y_init, t_eval=t_eval, rtol=1e-8)
+    x_vals, y_vals = sol.y[0], sol.y[1]
+    ax.plot(x_vals, y_vals, label=f'v₀ = {v0/1e3:.1f} km/s')
+
+# Plot formatting
+ax.set_xlim(-3e7, 3e7)
+ax.set_ylim(-3e7, 3e7)
+ax.set_aspect('equal')
+ax.set_xlabel('x (m)')
+ax.set_ylabel('y (m)')
+ax.set_title('Trajectories of a Released Payload at 800 km Altitude')
+ax.legend()
+plt.grid(True)
+plt.show()
+
+</code></pre>
+<p><img alt="alt text" src="../image-4.png"/></p>
+<hr/>
+<h2 id="6-numerical-simulation-and-visualization">✅ 6. Numerical Simulation and Visualization</h2>
+<p>We developed a numerical simulation that calculates the trajectories of a payload released 800 km above the Earth's surface, with varying initial velocities ranging from 5 km/s to 13 km/s.<br/>
+The simulation solves the equations of motion under Earth's gravitational influence using time-stepping.</p>
+<p><strong>Parameters:</strong>
+- Gravitational constant: <span class="arithmatex">\(G = 6.674 \times 10^{-11}\ \text{N m}^2/\text{kg}^2\)</span>
+- Earth's mass: <span class="arithmatex">\(M = 5.972 \times 10^{24}\ \text{kg}\)</span>
+- Earth's radius: <span class="arithmatex">\(R_{\text{Earth}} = 6371\ \text{km}\)</span>
+- Initial altitude: <span class="arithmatex">\(800\ \text{km}\)</span>
+- Initial position: <span class="arithmatex">\((R_{\text{Earth}} + 800\ \text{km}, 0)\)</span>
+- Initial velocities: 5, 5.5, 6, ..., 13 km/s horizontally.</p>
+<p><strong>Python Code:</strong></p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+G = 6.67430e-11  # gravitational constant
+M = 5.972e24     # mass of Earth
+R_earth = 6371e3 # radius of Earth in meters
+
+# Initial conditions
+altitude = 800e3  # 800 km altitude
+initial_pos = np.array([R_earth + altitude, 0])  # starting at (x,0)
+initial_velocities = np.arange(5e3, 13.5e3, 0.5e3)  # velocities from 5 to 13 km/s
+
+# Time settings
+dt = 1  # time step in seconds
+t_max = 30000  # total simulation time
+
+# Create figure
+fig, ax = plt.subplots(figsize=(10,10))
+theta = np.linspace(0, 2*np.pi, 100)
+earth_x = R_earth * np.cos(theta)
+earth_y = R_earth * np.sin(theta)
+ax.fill(earth_x, earth_y, 'b', alpha=0.5, label='Earth')
+
+# Plot trajectories
+for v0 in initial_velocities:
+    pos = initial_pos.copy()
+    vel = np.array([0, v0])
+    x_vals, y_vals = [], []
+
+    for _ in range(int(t_max/dt)):
+        r = np.linalg.norm(pos)
+        if r &lt; R_earth:
+            break  # collision with Earth
+        acc = -G * M * pos / r**3
+        vel += acc * dt
+        pos += vel * dt
+        x_vals.append(pos[0])
+        y_vals.append(pos[1])
+
+    ax.plot(x_vals, y_vals, label=f'{v0/1e3:.1f} km/s')
+
+# Plot settings
+ax.set_xlabel('x (m)')
+ax.set_ylabel('y (m)')
+ax.set_title('Trajectories of a Payload Released Near Earth')
+ax.legend()
+ax.set_aspect('equal')
+ax.grid(True)
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../image-5.png"/></p>
+<hr/>
+<h2 id="7-analysis-of-trajectory-types">✅ 7. Analysis of Trajectory Types</h2>
+<p>Depending on the initial velocity:
+- <strong>Below orbital velocity (~7.9 km/s):</strong> The object falls back to Earth (suborbital flight).
+- <strong>At orbital velocity (~7.9 km/s):</strong> A <strong>circular orbit</strong> around Earth is established.
+- <strong>Between orbital and escape velocity (~11.2 km/s):</strong> An <strong>elliptical orbit</strong> is created.
+- <strong>At escape velocity (~11.2 km/s):</strong> The payload follows a <strong>parabolic trajectory</strong>, escaping Earth's gravity.
+- <strong>Above escape velocity:</strong> A <strong>hyperbolic trajectory</strong> results, leading to interplanetary or interstellar travel.</p>
+<p>The simulation clearly visualizes these transitions between different types of motion.</p>
+<hr/>
+<h2 id="8-importance-in-space-exploration">✅ 8. Importance in Space Exploration</h2>
+<p>Understanding and controlling these trajectories is crucial for:
+- <strong>Satellite Deployment:</strong> Achieving stable orbits around Earth.
+- <strong>Space Missions:</strong> Sending spacecraft to other planets, requiring precise velocities.
+- <strong>Planetary Defense:</strong> Predicting and altering asteroid trajectories.
+- <strong>Return Missions:</strong> Planning safe reentry paths for crewed and uncrewed spacecraft.
+- <strong>Deep Space Exploration:</strong> Launching probes beyond the Solar System.</p>
+<p>Correct trajectory calculations ensure mission success and safety, optimizing fuel use and minimizing risks.</p>
+<hr/>
+<h2 id="9-conclusion">✅ 9. Conclusion</h2>
+<p>This study examined the possible trajectories of a payload released near Earth, demonstrating how variations in initial velocity drastically influence the resulting path.<br/>
+Using Newton's gravitational law and numerical simulations:
+- We derived conditions for suborbital, orbital, escape, and hyperbolic motions.
+- The plots confirmed theoretical predictions visually.
+- The analysis highlighted the central role of initial velocity and gravitational forces in orbital mechanics.</p>
+<p>Such investigations are foundational for space exploration, ensuring the accurate deployment of satellites, interplanetary travel, and beyond.</p>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
