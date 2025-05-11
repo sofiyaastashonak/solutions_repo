@@ -203,6 +203,7 @@ ax.set_aspect('equal')
 ax.grid(True)
 plt.show()
 ```
+
 ![alt text](image-5.png)
 
 ---
