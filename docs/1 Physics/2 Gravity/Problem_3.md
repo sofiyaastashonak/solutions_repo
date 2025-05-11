@@ -45,13 +45,16 @@ And $v$ is the velocity at distance $r$.
 
 At a given altitude, the critical velocities determine what kind of trajectory the payload will follow. For Earth, at radius $r = R + h$, where $h$ is the altitude and $R$ is Earth's radius:
 
-- **Orbital velocity (First cosmic velocity):**  
+- **Orbital velocity (First cosmic velocity):**
+
 $$v_1 = \sqrt{\frac{G M}{r}}$$  
 
-- **Escape velocity (Second cosmic velocity):**  
+- **Escape velocity (Second cosmic velocity):** 
+
 $$v_2 = \sqrt{\frac{2 G M}{r}}$$  
 
 - **Velocity to escape Sun from Earth orbit (Third cosmic velocity, approx):**  
+
 $$v_3 \approx \sqrt{v_2^2 + v_{orbit,sun}^2}$$  
 
 We focus here on the first two, since third cosmic velocity is better suited for interplanetary scale.
