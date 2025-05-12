@@ -106,6 +106,14 @@ def gravity(t, y):
     ay = -G * M * y_pos / r**3
     return [vx, vy, ax, ay]
 
+# Stop integration if the object hits Earth
+def hit_earth_event(t, y):
+    x, y_pos = y[0], y[1]
+    r = np.sqrt(x**2 + y_pos**2)
+    return r - R_earth
+hit_earth_event.terminal = True
+hit_earth_event.direction = -1  # Only trigger when approaching Earth
+
 # Initial position
 x0, y0 = r0, 0
 
@@ -119,7 +127,7 @@ ax.add_patch(earth)
 
 for v0 in velocities:
     y_init = [x0, y0, 0, v0]
-    sol = solve_ivp(gravity, t_span, y_init, t_eval=t_eval, rtol=1e-8)
+    sol = solve_ivp(gravity, t_span, y_init, t_eval=t_eval, events=hit_earth_event, rtol=1e-8)
     x_vals, y_vals = sol.y[0], sol.y[1]
     ax.plot(x_vals, y_vals, label=f'v₀ = {v0/1e3:.1f} km/s')
 
@@ -135,7 +143,7 @@ plt.grid(True)
 plt.show()
 
 ```
-![alt text](image-4.png)
+![alt text](image-6.png)
 
 ---
 
