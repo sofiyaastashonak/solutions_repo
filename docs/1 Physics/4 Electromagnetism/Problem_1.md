@@ -226,7 +226,7 @@ plt.show()
 
 
 ```
-
+##  [Colablink](https://colab.research.google.com/drive/1zq9jEMhxluZIDFrFkZhIb6ITM9KbbIoi?usp=sharing)
 
 ---
 
