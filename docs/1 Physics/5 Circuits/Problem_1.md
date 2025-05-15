@@ -37,11 +37,13 @@ The goal is to find the **equivalent resistance** between START and END by simpl
 $$V = IR$$
 
 ### 🔹 Series Resistance  
-If resistors $R_1$ and $R_2$ are in **series**:  
+If resistors $R_1$ and $R_2$ are in **series**: 
+
 $$R_{\text{eq}} = R_1 + R_2$$
 
 ### 🔹 Parallel Resistance  
-If resistors $R_1$ and $R_2$ are in **parallel**:  
+If resistors $R_1$ and $R_2$ are in **parallel**: 
+
 $$\frac{1}{R_{\text{eq}}} = \frac{1}{R_1} + \frac{1}{R_2}$$
 
 ---
@@ -101,7 +103,8 @@ This graph includes both series and parallel combinations.
 After simplification, the graph is reduced to a single edge between **START** and **END**. The final equivalent resistance is computed and returned.
 
 🧮 **Final Equivalent Resistance**:  
-**Approximately**: $$R_{\text{eq}} \approx 4.36\ \Omega$$
+**Approximately**: 
+$$R_{\text{eq}} \approx 4.36\ \Omega$$
 
 ---
 
@@ -110,7 +113,9 @@ After simplification, the graph is reduced to a single edge between **START** an
 - Graph reduction steps are efficient and can be automated.
 - Works for any **nested** configuration of resistors.
 - Algorithm scales well for larger, complex networks.
-- Complexity: approximately $$\mathcal{O}(n \log n)$$ with efficient detection of patterns.
+- Complexity: approximately 
+$$\mathcal{O}(n \log n)$$ 
+with efficient detection of patterns.
 
 ---
 
