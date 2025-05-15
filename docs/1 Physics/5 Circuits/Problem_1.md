@@ -104,6 +104,7 @@ After simplification, the graph is reduced to a single edge between **START** an
 
 🧮 **Final Equivalent Resistance**:  
 **Approximately**: 
+
 $$R_{\text{eq}} \approx 4.36\ \Omega$$
 
 ---
