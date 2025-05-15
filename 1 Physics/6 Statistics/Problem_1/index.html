@@ -172,6 +172,109 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<h1 id="statistics-problem-1">Statistics Problem 1</h1>
+<h2 id="exploring-the-central-limit-theorem-clt-through-simulations">Exploring the Central Limit Theorem (CLT) Through Simulations</h2>
+<hr/>
+<h2 id="1-motivation">✅ 1. Motivation</h2>
+<p>The <strong>Central Limit Theorem (CLT)</strong> is one of the most important results in probability and statistics. It states:</p>
+<blockquote>
+<p>Given a population with any distribution (with finite mean <span class="arithmatex">\(\mu\)</span> and variance <span class="arithmatex">\(\sigma^2\)</span>), the <strong>sampling distribution of the sample mean</strong> approaches a <strong>normal distribution</strong> as the <strong>sample size</strong> increases.</p>
+</blockquote>
+<p>CLT has powerful implications:
+- It justifies using the <strong>normal distribution</strong> in inference,
+- Enables <strong>confidence intervals</strong> and <strong>hypothesis testing</strong>,
+- Supports statistical modeling across various disciplines.</p>
+<p>This report demonstrates the CLT via <strong>simulations</strong> from different types of populations.</p>
+<hr/>
+<h2 id="2-key-definitions">✅ 2. Key Definitions</h2>
+<ul>
+<li><strong>Population</strong>: The entire set of data values (e.g., all possible outcomes).</li>
+<li><strong>Sample</strong>: A subset taken from the population.</li>
+<li><strong>Sample mean (<span class="arithmatex">\(\bar{x}\)</span>)</strong>: The average value of a sample.</li>
+<li><strong>Sampling distribution</strong>: The distribution of a statistic (like <span class="arithmatex">\(\bar{x}\)</span>) over many samples.</li>
+<li><strong>CLT</strong>: As sample size <span class="arithmatex">\(n \to \infty\)</span>, the distribution of <span class="arithmatex">\(\bar{x}\)</span> approaches normality.</li>
+</ul>
+<hr/>
+<h2 id="3-simulation-plan">✅ 3. Simulation Plan</h2>
+<p>For each population distribution:
+1. Generate a <strong>large population</strong> (e.g., 100,000 values).
+2. Select <strong>sample sizes</strong> <span class="arithmatex">\(n = 5,\ 10,\ 30,\ 50\)</span>.
+3. Draw <strong>repeated random samples</strong> from the population.
+4. Compute <strong>sample means</strong> for each iteration.
+5. Plot histograms to observe convergence toward a normal shape.</p>
+<p>Distributions tested:
+- Uniform <span class="arithmatex">\((0, 1)\)</span>
+- Exponential <span class="arithmatex">\((\lambda=1)\)</span>
+- Binomial <span class="arithmatex">\((n=10,\ p=0.5)\)</span></p>
+<hr/>
+<h2 id="4-population-distribution-uniform01">✅ 4. Population Distribution: Uniform(0,1)</h2>
+<h3 id="description">🎯 Description:</h3>
+<ul>
+<li>Flat distribution from 0 to 1.</li>
+<li>Mean: <span class="arithmatex">\(\mu = 0.5\)</span></li>
+<li>Variance: <span class="arithmatex">\(\sigma^2 = \frac{1}{12}\)</span></li>
+</ul>
+<p><img alt="alt text" src="../Uniform01_n5-1.png"/></p>
+<p><img alt="alt text" src="../Uniform01_n10.png"/></p>
+<p><img alt="alt text" src="../Uniform01_n30.png"/></p>
+<p><img alt="alt text" src="../Uniform01_n50.png"/></p>
+<p>🧠 <strong>Observation</strong>:<br/>
+As <span class="arithmatex">\(n\)</span> increases, histograms become more <strong>bell-shaped</strong>, approximating a normal distribution.</p>
+<hr/>
+<h2 id="5-population-distribution-exponential1">✅ 5. Population Distribution: Exponential(λ=1)</h2>
+<h3 id="description_1">🎯 Description:</h3>
+<ul>
+<li>Skewed distribution, mean = 1</li>
+<li>Heavy tail</li>
+</ul>
+<p><img alt="alt text" src="../Exponential%CE%BB1_n5.png"/></p>
+<p><img alt="alt text" src="../Exponential%CE%BB1_n10.png"/></p>
+<p><img alt="alt text" src="../Exponential%CE%BB1_n30.png"/></p>
+<p><img alt="alt text" src="../Exponential%CE%BB1_n50.png"/></p>
+<p>🧠 <strong>Observation</strong>:<br/>
+Convergence is slower due to <strong>high skewness</strong>, but normality is still visible as <span class="arithmatex">\(n\)</span> grows.</p>
+<hr/>
+<h2 id="6-population-distribution-binomialn10-p05">✅ 6. Population Distribution: Binomial(n=10, p=0.5)</h2>
+<h3 id="description_2">🎯 Description:</h3>
+<ul>
+<li>Discrete, symmetric shape (similar to normal)</li>
+<li>Mean = <span class="arithmatex">\(np = 5\)</span></li>
+</ul>
+<p><img alt="alt text" src="../Binomialn10_p0.5_n5.png"/></p>
+<p><img alt="alt text" src="../Binomialn10_p0.5_n10.png"/></p>
+<p><img alt="alt text" src="../Binomialn10_p0.5_n30.png"/></p>
+<p><img alt="alt text" src="../Binomialn10_p0.5_n50.png"/></p>
+<p>🧠 <strong>Observation</strong>:<br/>
+Faster convergence due to population already being <strong>close to normal</strong>.</p>
+<p># <a href="https://colab.research.google.com/drive/1XWs5uAljtzlrtBVYSJiZqSI1UhofElnu?usp=sharing">Colablink</a></p>
+<hr/>
+<h2 id="7-parameter-exploration">✅ 7. Parameter Exploration</h2>
+<h3 id="influence-of">🔍 Influence of:</h3>
+<ul>
+<li><strong>Sample size (<span class="arithmatex">\(n\)</span>)</strong>: Larger <span class="arithmatex">\(n\)</span> = better approximation to normal</li>
+<li><strong>Population shape</strong>: More skewed → slower convergence</li>
+<li><strong>Variance</strong>: Affects spread (standard error <span class="arithmatex">\(\propto \frac{\sigma}{\sqrt{n}}\)</span>)</li>
+</ul>
+<p><img alt="alt text" src="../standard_deviation_vs_sample_size.png"/></p>
+<hr/>
+<h2 id="8-real-world-applications-of-clt">✅ 8. Real-World Applications of CLT</h2>
+<ul>
+<li><strong>Estimating population parameters</strong> (e.g., average income, exam scores)</li>
+<li><strong>Manufacturing</strong>: Sample testing and quality control</li>
+<li><strong>Finance</strong>: Risk estimation using historical return sampling</li>
+<li><strong>Epidemiology</strong>: Predicting disease metrics using population sampling</li>
+</ul>
+<p>CLT enables use of <strong>normal-based confidence intervals and p-values</strong> in all these fields.</p>
+<hr/>
+<h2 id="9-conclusion">✅ 9. Conclusion</h2>
+<p>The Central Limit Theorem holds for all tested distributions:</p>
+<ul>
+<li>✅ Even when populations are <strong>non-normal</strong> or <strong>skewed</strong></li>
+<li>✅ Larger samples produce <strong>normal-like</strong> sampling distributions</li>
+<li>✅ Convergence is faster when population is less skewed</li>
+</ul>
+<p>CLT allows us to use powerful statistical tools regardless of the underlying population.</p>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
