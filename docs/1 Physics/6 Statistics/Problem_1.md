@@ -102,7 +102,7 @@ Convergence is slower due to **high skewness**, but normality is still visible a
 🧠 **Observation**:  
 Faster convergence due to population already being **close to normal**.
 
- # [Colablink](https://colab.research.google.com/drive/1XWs5uAljtzlrtBVYSJiZqSI1UhofElnu?usp=sharing)
+# [Colablink](https://colab.research.google.com/drive/1XWs5uAljtzlrtBVYSJiZqSI1UhofElnu?usp=sharing)
 
 ---
 
