@@ -172,6 +172,173 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
+<h1 id="estimating-using-monte-carlo-methods">📐 Estimating π Using Monte Carlo Methods</h1>
+<h2 id="motivation">Motivation</h2>
+<p>Monte Carlo methods are widely used in physics, engineering, and finance to simulate random processes. One of the most intuitive and visually appealing applications of this method is estimating the value of π — the ratio of a circle’s circumference to its diameter.</p>
+<p>In this project, we implement and compare <strong>two classic methods</strong> for estimating π:
+1. The <strong>geometric circle method</strong> (area-based approach).
+2. The <strong>Buffon's needle experiment</strong> (probabilistic geometry).</p>
+<p>These methods reveal the power of randomness and how it can be used to derive accurate approximations for fundamental constants.</p>
+<hr/>
+<h2 id="part-1-estimating-with-random-points-in-a-circle">Part 1: Estimating π with Random Points in a Circle</h2>
+<h3 id="1-theoretical-background">1. Theoretical Background</h3>
+<p>We place a unit circle (radius = 1) inside a square of side 2 (from -1 to 1 in both axes). Random points <span class="arithmatex">\((x, y)\)</span> are generated within the square. If a point lies within the circle, it satisfies:</p>
+<div class="arithmatex">\[
+x^2 + y^2 \leq 1
+\]</div>
+<p>Since the area of the square is <span class="arithmatex">\(4\)</span> and the area of the unit circle is <span class="arithmatex">\(\pi\)</span>, the ratio of points falling inside the circle approximates the ratio of the areas:</p>
+<div class="arithmatex">\[
+\frac{\text{Points inside}}{\text{Total points}} \approx \frac{\pi}{4}
+\quad \Rightarrow \quad \pi \approx 4 \cdot \frac{\text{Inside}}{\text{Total}}
+\]</div>
+<p>This provides a simple way to estimate π using only geometry and random numbers.</p>
+<hr/>
+<h3 id="2-simulation-process">2. Simulation Process</h3>
+<p>We simulate <span class="arithmatex">\(n\)</span> random points within the square, count how many fall within the circle, and apply the formula above to estimate π.</p>
+<p>Python code to simulate <span class="arithmatex">\(n\)</span> random points, count how many fall within the unit circle, and estimate π:</p>
+<p>```python</p>
+<p>import numpy as np</p>
+<p>def monte_carlo_pi(n_points=10000):
+    x = np.random.uniform(-1, 1, n_points)
+    y = np.random.uniform(-1, 1, n_points)
+    inside = x<strong>2 + y</strong>2 &lt;= 1
+    pi_estimate = 4 * np.sum(inside) / n_points
+    print(f"Estimated π ≈ {pi_estimate:.5f} using {n_points} random points")</p>
+<pre><code>return pi_estimate
+</code></pre>
+<h1 id="example-use">Example use:</h1>
+<p>monte_carlo_pi(10000)</p>
+<p>```</p>
+<hr/>
+<h3 id="3-visualization-of-points">3. Visualization of Points</h3>
+<p>To better understand the process, we visualize:
+- <strong>Green points</strong> that fall <strong>inside</strong> the circle.
+- <strong>Red points</strong> that fall <strong>outside</strong> the circle.</p>
+<p><img alt="alt text" src="../image.png"/></p>
+<p>This helps illustrate how the method works geometrically and intuitively.</p>
+<hr/>
+<h3 id="4-accuracy-and-convergence">4. Accuracy and Convergence</h3>
+<p>The law of large numbers tells us that the estimate will converge to the true value of π as the number of points increases.</p>
+<p><img alt="alt text" src="../image-1.png"/></p>
+<p>We observe:
+- With a small number of points (e.g. 100), the estimate is unstable.
+- With 10,000+ points, the estimate approaches 3.14 and stabilizes.</p>
+<hr/>
+<h2 id="part-2-estimating-using-buffons-needle">Part 2: Estimating π Using Buffon’s Needle</h2>
+<h3 id="1-theoretical-background_1">1. Theoretical Background</h3>
+<p><strong>Buffon's Needle</strong> is a classical problem in probability. Imagine a floor with parallel lines spaced distance <span class="arithmatex">\(d\)</span> apart. A needle of length <span class="arithmatex">\(L \leq d\)</span> is dropped randomly. The probability that the needle crosses a line is given by:</p>
+<div class="arithmatex">\[
+P = \frac{2L}{\pi d}
+\quad \Rightarrow \quad \pi \approx \frac{2L \cdot N}{d \cdot H}
+\]</div>
+<p>Where:
+- <span class="arithmatex">\(N\)</span> = total needle drops
+- <span class="arithmatex">\(H\)</span> = number of crossings (hits)
+- <span class="arithmatex">\(L\)</span> = needle length
+- <span class="arithmatex">\(d\)</span> = line spacing</p>
+<p>This method connects geometry, probability, and estimation in a surprising and elegant way.</p>
+<hr/>
+<h3 id="2-simulation-process_1">2. Simulation Process</h3>
+<p>We simulate random needle drops:
+- Randomize the needle center's position between two lines
+- Randomize the angle
+- Check if the needle crosses a line</p>
+<pre><code class="language-python">
+import numpy as np
+
+def buffon_needle_simulation(n_needles=10000, L=1.0, d=1.0):
+    """
+    Simulates Buffon's Needle experiment.
+
+    Parameters:
+        n_needles (int): Number of needle drops.
+        L (float): Length of the needle.
+        d (float): Distance between parallel lines (must be &gt;= L for the formula to hold).
+
+    Returns:
+        Estimated value of π.
+    """
+    if L &gt; d:
+        raise ValueError("Needle length must be less than or equal to the distance between lines.")
+
+    hits = 0
+    for _ in range(n_needles):
+        x = np.random.uniform(0, d / 2)  # Distance from center to nearest line
+        theta = np.random.uniform(0, np.pi / 2)  # Angle with respect to the lines
+        if x &lt;= (L / 2) * np.sin(theta):
+            hits += 1
+
+    if hits == 0:
+        return float('inf')  # Avoid division by zero
+
+    pi_estimate = (2 * L * n_needles) / (d * hits)
+    print(f"Estimated π ≈ {pi_estimate:.5f} from {n_needles} needle drops")
+    return pi_estimate
+
+# Example usage:
+buffon_needle_simulation(n_needles=10000)
+
+
+</code></pre>
+<hr/>
+<h3 id="3-visualization-of-needle-drops">3. Visualization of Needle Drops</h3>
+<p>To illustrate:
+- <strong>Blue needles</strong> cross a line.
+- <strong>Gray needles</strong> do not cross.</p>
+<p>Parallel lines are shown as vertical dashed lines.</p>
+<p>📌 <strong>Insert Here: Plot showing needle drops and line crossings. Title includes total drops, hits, and estimated π.</strong></p>
+<p>This makes the geometric probability visible and understandable.</p>
+<hr/>
+<h3 id="4-convergence-and-comparison">4. Convergence and Comparison</h3>
+<p>As the number of needle drops increases, the estimate of π improves, although more slowly than with the circle method.</p>
+<p><img alt="alt text" src="../image-2.png"/></p>
+<h1 id="colablink"><a href="https://colab.research.google.com/drive/1PVaJJGIUGTa7_HKSwAy3jXSBmQhhJ7_r?usp=sharing">Colablink</a></h1>
+<p>We compare:
+- Convergence rate
+- Variance in estimates
+- Sensitivity to sample size</p>
+<hr/>
+<h2 id="summary-table">📊 Summary Table</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Estimate Formula</th>
+<th>Speed of Convergence</th>
+<th>Accuracy (n=10,000)</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Circle Method</td>
+<td><span class="arithmatex">\(π ≈ 4 \cdot \frac{M}{N}\)</span></td>
+<td>Faster</td>
+<td>±0.01–0.03</td>
+<td>Simple, visual, low variance</td>
+</tr>
+<tr>
+<td>Buffon's Needle</td>
+<td><span class="arithmatex">\(π ≈ \frac{2L \cdot N}{d \cdot H}\)</span></td>
+<td>Slower</td>
+<td>±0.05–0.1</td>
+<td>Historical, higher variability</td>
+</tr>
+</tbody>
+</table>
+<p>Where:
+- <span class="arithmatex">\(M\)</span> = number of points inside the circle
+- <span class="arithmatex">\(N\)</span> = total number of points
+- <span class="arithmatex">\(H\)</span> = number of hits (needle crosses a line)</p>
+<hr/>
+<h2 id="conclusion">✅ Conclusion</h2>
+<p>This project demonstrates the power and versatility of Monte Carlo methods:</p>
+<ul>
+<li>The <strong>Circle Method</strong> provides a fast and visual estimation of π with good accuracy and simple implementation.</li>
+<li><strong>Buffon’s Needle</strong> offers a beautiful probabilistic approach rooted in classical mathematics but converges more slowly and shows more variation.</li>
+</ul>
+<p>Both highlight how randomness, geometry, and probability come together in computational simulations. These experiments build a deeper understanding of convergence, estimation, and the connection between mathematics and real-world simulation.</p>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
