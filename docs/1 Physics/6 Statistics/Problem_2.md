@@ -41,9 +41,9 @@ We simulate $n$ random points within the square, count how many fall within the 
 
  Python code to simulate $n$ random points, count how many fall within the unit circle, and estimate π:
 
- ```python
+```python
 
- import numpy as np
+import numpy as np
 
 def monte_carlo_pi(n_points=10000):
     x = np.random.uniform(-1, 1, n_points)
@@ -58,7 +58,7 @@ def monte_carlo_pi(n_points=10000):
 monte_carlo_pi(10000)
 
 
-  ```
+```
 
 ---
 
