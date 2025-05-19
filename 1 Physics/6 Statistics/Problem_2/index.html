@@ -196,19 +196,23 @@ x^2 + y^2 \leq 1
 <h3 id="2-simulation-process">2. Simulation Process</h3>
 <p>We simulate <span class="arithmatex">\(n\)</span> random points within the square, count how many fall within the circle, and apply the formula above to estimate π.</p>
 <p>Python code to simulate <span class="arithmatex">\(n\)</span> random points, count how many fall within the unit circle, and estimate π:</p>
-<p>```python</p>
-<p>import numpy as np</p>
-<p>def monte_carlo_pi(n_points=10000):
+<pre><code class="language-python">
+import numpy as np
+
+def monte_carlo_pi(n_points=10000):
     x = np.random.uniform(-1, 1, n_points)
     y = np.random.uniform(-1, 1, n_points)
-    inside = x<strong>2 + y</strong>2 &lt;= 1
+    inside = x**2 + y**2 &lt;= 1
     pi_estimate = 4 * np.sum(inside) / n_points
-    print(f"Estimated π ≈ {pi_estimate:.5f} using {n_points} random points")</p>
-<pre><code>return pi_estimate
+    print(f"Estimated π ≈ {pi_estimate:.5f} using {n_points} random points")
+
+    return pi_estimate
+
+# Example use:
+monte_carlo_pi(10000)
+
+
 </code></pre>
-<h1 id="example-use">Example use:</h1>
-<p>monte_carlo_pi(10000)</p>
-<p>```</p>
 <hr/>
 <h3 id="3-visualization-of-points">3. Visualization of Points</h3>
 <p>To better understand the process, we visualize:
