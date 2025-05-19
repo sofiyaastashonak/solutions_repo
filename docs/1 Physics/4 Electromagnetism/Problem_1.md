@@ -81,7 +81,7 @@ We simulate the motion of a charged particle using the above equations. Numerica
 📌 Expected Motion:  
 A **circular trajectory** in the plane perpendicular to $\vec{B}$.
 
-![alt text](image.png)
+![alt text](image-5.png)
 
 ###  Python Implementation
 
@@ -91,47 +91,62 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
 # Constants
-q = 1.0              # charge [C]
-m = 0.001            # mass [kg]
-dt = 0.01            # time step [s]
-steps = 3000         # number of steps
+q = 1.0               # charge [C]
+m = 1.0               # mass [kg] — increased to prevent blow-up
+dt = 0.001            # smaller time step for better stability
+steps = 20000          # number of steps
 
 # Lorentz force equation
 def lorentz_force(v, E, B):
     return q * (E + np.cross(v, B))
 
-# Simulation function
-def simulate_motion(v0, E, B, r0=np.array([0,0,0])):
+# Leapfrog (Velocity-Verlet) integration
+def simulate_motion(v0, E, B, r0=np.array([0, 0, 0])):
     r = [r0]
     v = [v0]
+    
+    # First half-step velocity update (leapfrog)
+    a = lorentz_force(v0, E, B) / m
+    v_half = v0 + 0.5 * a * dt
+
     for _ in range(steps):
-        a = lorentz_force(v[-1], E, B) / m
-        v_next = v[-1] + a * dt
-        r_next = r[-1] + v_next * dt
-        v.append(v_next)
+        # Full step position update
+        r_next = r[-1] + v_half * dt
         r.append(r_next)
-    return np.array(r)
 
-```
+        # Compute acceleration at new position (based on velocity)
+        a = lorentz_force(v_half, E, B) / m
 
+        # Full step velocity update
+        v_half = v_half + a * dt
+        v.append(v_half - 0.5 * a * dt)  # Store full-step velocity for record
 
-```python
-B = np.array([0, 0, 1])
-E = np.array([0, 0, 0])
-v0_circle = np.array([1.0, 0, 0])
+    return np.array(r), np.array(v)
 
-traj_circle = simulate_motion(v0_circle, E, B)
+# Fields and initial conditions
+B = np.array([0, 0, 1])                 # Uniform magnetic field along z-axis
+E = np.array([0, 0, 0])                 # No electric field
+v0_spiral = np.array([1.0, 0.0, 0.5])   # Initial velocity with z-component
+r0 = np.array([0.0, 0.0, 0.0])          # Starting at origin
 
-plt.figure(figsize=(6, 5))
-plt.plot(traj_circle[:, 0], traj_circle[:, 1])
-plt.title("Circular Trajectory (Uniform Magnetic Field)")
-plt.xlabel("x")
-plt.ylabel("y")
-plt.axis("equal")
-plt.grid(True)
+# Run simulation
+positions, velocities = simulate_motion(v0_spiral, E, B, r0)
+
+# 3D Plot of the trajectory
+fig = plt.figure(figsize=(8, 6))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot(positions[:, 0], positions[:, 1], positions[:, 2])
+ax.set_title("Stable Spiral Trajectory in Magnetic Field")
+ax.set_xlabel("x")
+ax.set_ylabel("y")
+ax.set_zlabel("z")
+plt.tight_layout()
 plt.show()
 
 ```
+
+
+
 
 ---
 
@@ -144,16 +159,56 @@ plt.show()
 📌 Expected Motion:  
 A **helical (spiral)** trajectory along the $z$-axis.
 
-![alt text](image-2.png)
+![alt text](image-6.png)
 
 ```python
-v0_spiral = np.array([1.0, 0, 1.0])  # Initial velocity has z component
-traj_spiral = simulate_motion(v0_spiral, E, B)
 
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+# Constants
+q = 1.0               # charge [C]
+m = 1.0               # mass [kg]
+dt = 0.001            # time step [s]
+steps = 20000         # number of steps
+
+# Lorentz force equation
+def lorentz_force(v, E, B):
+    return q * (E + np.cross(v, B))
+
+# Leapfrog (Velocity-Verlet) integration
+def simulate_motion(v0, E, B, r0=np.array([0, 0, 0])):
+    r = [r0]
+    v = [v0]
+
+    a = lorentz_force(v0, E, B) / m
+    v_half = v0 + 0.5 * a * dt
+
+    for _ in range(steps):
+        r_next = r[-1] + v_half * dt
+        r.append(r_next)
+
+        a = lorentz_force(v_half, E, B) / m
+        v_half = v_half + a * dt
+        v.append(v_half - 0.5 * a * dt)
+
+    return np.array(r), np.array(v)
+
+# Fields and initial conditions
+B = np.array([0, 0, 1])                 # Magnetic field along z-axis
+E = np.array([0, 0, 0])                 # No electric field
+v0_circle = np.array([1.0, 0.0, 0.0])   # Purely perpendicular to B
+r0 = np.array([0.0, 0.0, 0.0])          # Starting at origin
+
+# Run simulation
+positions, velocities = simulate_motion(v0_circle, E, B, r0)
+
+# 3D Plot (but will look flat in z due to circular xy-plane motion)
 fig = plt.figure(figsize=(8, 6))
 ax = fig.add_subplot(111, projection='3d')
-ax.plot(traj_spiral[:, 0], traj_spiral[:, 1], traj_spiral[:, 2])
-ax.set_title("Spiral Trajectory (Helical Motion)")
+ax.plot(positions[:, 0], positions[:, 1], positions[:, 2])
+ax.set_title("Circular Trajectory in Magnetic Field")
 ax.set_xlabel("x")
 ax.set_ylabel("y")
 ax.set_zlabel("z")
@@ -178,21 +233,60 @@ $$
 \vec{v}_{\text{drift}} = \frac{\vec{E} \times \vec{B}}{B^2}
 $$
 
-![alt text](image-3.png)
+![alt text](image-7.png)
 
 
 ```python
-E_drift = np.array([0, 5.0, 0])  # Electric field along y-axis
-v0_drift = np.array([1.0, 0, 0])
-traj_drift = simulate_motion(v0_drift, E_drift, B)
 
-plt.figure(figsize=(6, 5))
-plt.plot(traj_drift[:, 0], traj_drift[:, 1])
-plt.title("Drift in Crossed E and B Fields")
-plt.xlabel("x")
-plt.ylabel("y")
-plt.axis("equal")
-plt.grid(True)
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+# Constants
+q = 1.0               # charge [C]
+m = 1.0               # mass [kg]
+dt = 0.001            # time step [s]
+steps = 20000         # number of steps
+
+# Lorentz force equation
+def lorentz_force(v, E, B):
+    return q * (E + np.cross(v, B))
+
+# Leapfrog integration
+def simulate_motion(v0, E, B, r0=np.array([0, 0, 0])):
+    r = [r0]
+    v = [v0]
+
+    a = lorentz_force(v0, E, B) / m
+    v_half = v0 + 0.5 * a * dt
+
+    for _ in range(steps):
+        r_next = r[-1] + v_half * dt
+        r.append(r_next)
+
+        a = lorentz_force(v_half, E, B) / m
+        v_half = v_half + a * dt
+        v.append(v_half - 0.5 * a * dt)
+
+    return np.array(r), np.array(v)
+
+# Fields and initial velocity
+B = np.array([0, 0, 1])       # Magnetic field along z
+E = np.array([1, 0, 0])       # Electric field along x
+v0 = np.array([0.0, 1.0, 0.0])  # Some initial perpendicular velocity
+
+# Run simulation
+positions, velocities = simulate_motion(v0, E, B)
+
+# 3D Plot
+fig = plt.figure(figsize=(8, 6))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot(positions[:, 0], positions[:, 1], positions[:, 2])
+ax.set_title("E × B Drift of Charged Particle")
+ax.set_xlabel("x")
+ax.set_ylabel("y")
+ax.set_zlabel("z")
+plt.tight_layout()
 plt.show()
 
 
@@ -207,21 +301,62 @@ plt.show()
 📌 Expected Motion:  
 **Uniform acceleration** in the direction of $\vec{E}$ (parabolic path in velocity space).
 
-![alt text](image-4.png)
+![alt text](image-8.png)
 
 ```python
-B_zero = np.array([0, 0, 0])
-E_electric = np.array([10.0, 0, 0])  # Acceleration in x-direction
-v0_electric = np.array([0, 0, 0])
 
-traj_electric = simulate_motion(v0_electric, E_electric, B_zero)
+import numpy as np
+import matplotlib.pyplot as plt
 
-plt.figure(figsize=(6, 5))
-plt.plot(traj_electric[:, 0], traj_electric[:, 1])
-plt.title("Parabolic Motion (Electric Field Only)")
-plt.xlabel("x")
-plt.ylabel("y")
-plt.grid(True)
+# Constants
+q = 1.0               # charge [C]
+m = 1.0               # mass [kg]
+dt = 0.001            # time step [s]
+steps = 5000          # number of steps
+
+# Lorentz force (B is zero here)
+def lorentz_force(v, E, B):
+    return q * E  # cross(v, 0) = 0
+
+# Leapfrog integration (still works fine)
+def simulate_motion(v0, E, B, r0=np.array([0, 0, 0])):
+    r = [r0]
+    v = [v0]
+
+    a = lorentz_force(v0, E, B) / m
+    v_half = v0 + 0.5 * a * dt
+
+    for _ in range(steps):
+        r_next = r[-1] + v_half * dt
+        r.append(r_next)
+
+        a = lorentz_force(v_half, E, B) / m
+        v_half = v_half + a * dt
+        v.append(v_half - 0.5 * a * dt)
+
+    return np.array(r), np.array(v)
+
+# Strong Electric Field, No Magnetic Field
+E = np.array([10.0, 0.0, 0.0])     # Strong field along x-axis
+B = np.array([0.0, 0.0, 0.0])      # No magnetic field
+v0 = np.array([0.0, 0.0, 0.0])     # Starting at rest
+r0 = np.array([0.0, 0.0, 0.0])     # Starting at origin
+
+# Run simulation
+positions, velocities = simulate_motion(v0, E, B, r0)
+
+# Plot trajectory in 3D (but it's linear in x, flat in y and z)
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+fig = plt.figure(figsize=(8, 6))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot(positions[:, 0], positions[:, 1], positions[:, 2])
+ax.set_title("Motion Under Strong Electric Field Only")
+ax.set_xlabel("x")
+ax.set_ylabel("y")
+ax.set_zlabel("z")
+plt.tight_layout()
 plt.show()
 
 
