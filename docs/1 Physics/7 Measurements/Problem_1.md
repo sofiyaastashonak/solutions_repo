@@ -43,8 +43,9 @@ $$g = \frac{4\pi^2 L}{T^2}$$
 2. Measure the total pendulum length $L$ from the suspension point to the center of mass of the weight. Record:
    - $L = 102\ \text{cm} = 1.02\ \text{m}$
    - Ruler resolution = $1\ \text{mm} = 0.001\ \text{m}$
-   - Uncertainty in length:  
-  $$\Delta L = \frac{0.001}{2} = 0.0005\ \text{m}$$
+   - Uncertainty in length: 
+
+$$\Delta L = \frac{0.001}{2} = 0.0005\ \text{m}$$
 
 ### 2. Data Collection
 
@@ -73,7 +74,8 @@ The following plot shows the time measurements for 10 full oscillations ($T_{10}
    - Mean time $\overline{T_{10}} = 19.289\ \text{s}$
    - Standard deviation $\sigma_T = 0.0408\ \text{s}$
    - Uncertainty in mean:  
-  $$\Delta T_{10} = \frac{\sigma_T}{\sqrt{10}} = 0.0129\ \text{s}$$
+   
+$$\Delta T_{10} = \frac{\sigma_T}{\sqrt{10}} = 0.0129\ \text{s}$$
 
 ---
 
