@@ -225,28 +225,64 @@
 </ol>
 <hr/>
 <h2 id="6-example-complex-circuit">✅ 6. Example: Complex Circuit</h2>
-<p>We use the following network:</p>
+<h2 id="step-by-step-simplification">🔹 Step-by-Step Simplification</h2>
+<h3 id="step-1-initial-circuit">✅ Step 1: Initial Circuit</h3>
 <ul>
-<li>Resistors between: START–A, A–B, B–C, C–END</li>
-<li>Also additional edges: A–C and B–END</li>
+<li>START–A: 2 Ω  </li>
+<li>A–B: 3 Ω  </li>
+<li>A–C: 6 Ω  </li>
+<li>B–C: 4 Ω  </li>
+<li>C–END: 5 Ω  </li>
+<li>B–END: 8 Ω  </li>
 </ul>
-<p>This graph includes both series and parallel combinations.</p>
-<p><img alt="alt text" src="../image.png"/> 
-(Shows all nodes and resistors with weights)</p>
-<p><img alt="alt text" src="../image-1.png"/><br/>
-(Combines those resistors)</p>
-<p><img alt="alt text" src="../image-2.png"/>
-(Combines A–C paths in parallel with earlier A–C edge)</p>
-<p><img alt="alt text" src="../image-3.png"/> 
-(This edge shows the final equivalent resistance)</p>
-<h2 id="colablink"><a href="https://colab.research.google.com/drive/1Gnqf6nJ7SUzUnyfO8ePysKOdNfTIPay3?usp=sharing">Colablink</a></h2>
-<h2 id="7-results-and-output">✅ 7. Results and Output</h2>
-<p>After simplification, the graph is reduced to a single edge between <strong>START</strong> and <strong>END</strong>. The final equivalent resistance is computed and returned.</p>
-<p>🧮 <strong>Final Equivalent Resistance</strong>:<br/>
-<strong>Approximately</strong>: </p>
-<div class="arithmatex">\[R_{\text{eq}} \approx 4.36\ \Omega\]</div>
+<p><img alt="alt text" src="../image-4.png"/></p>
 <hr/>
-<h2 id="8-analysis-and-efficiency">✅ 8. Analysis and Efficiency</h2>
+<h3 id="step-2-combine-bcend-and-bend-in-parallel">✅ Step 2: Combine B–C–END and B–END in Parallel</h3>
+<ul>
+<li>B–C = 4 Ω, C–END = 5 Ω → total series: 4 + 5 = <strong>9 Ω</strong></li>
+<li>B–END = 8 Ω</li>
+</ul>
+<p>Combine in parallel:</p>
+<div class="arithmatex">\[
+R_{B-END} = \left(\frac{1}{8} + \frac{1}{9}\right)^{-1} = \frac{72}{17} ≈ 4.24\ \Omega
+\]</div>
+<p><img alt="alt text" src="../image-5.png"/></p>
+<hr/>
+<h3 id="step-3-combine-abend-as-series">✅ Step 3: Combine A–B–END as Series</h3>
+<ul>
+<li>A–B = 3 Ω  </li>
+<li>B–END (parallel result) = 4.24 Ω  </li>
+</ul>
+<p>Combined:</p>
+<div class="arithmatex">\[
+R_{A–END}^{(1)} = 3 + 4.24 = 7.24\ \Omega
+\]</div>
+<ul>
+<li>A–C = 6 Ω  </li>
+<li>C–END = 5 Ω → A–C–END = 11 Ω</li>
+</ul>
+<p><img alt="alt text" src="../image-6.png"/></p>
+<hr/>
+<h3 id="step-4-final-parallel-between-abend-and-acend">✅ Step 4: Final Parallel Between A–B–END and A–C–END</h3>
+<p>Parallel of 7.24 Ω and 11 Ω:</p>
+<div class="arithmatex">\[
+R_{\text{A–END}} = \left(\frac{1}{7.24} + \frac{1}{11}\right)^{-1} = \frac{79.64}{18.24} ≈ 4.37\ \Omega
+\]</div>
+<p><img alt="alt text" src="../image-7.png"/></p>
+<hr/>
+<h3 id="final-equivalent-resistance-from-start">✅ Final Equivalent Resistance from START</h3>
+<div class="arithmatex">\[
+R_{\text{eq}} = R_{\text{START–A}} + R_{\text{A–END}} = 2 + 4.37 = \boxed{6.37\ \Omega}
+\]</div>
+<hr/>
+<h2 id="summary">✅ Summary</h2>
+<ul>
+<li>The final equivalent resistance of the circuit is <strong>6.37 Ω</strong></li>
+<li>Graph theory allows us to visualize and simplify even complex electrical circuits</li>
+<li>This method can be extended to automated analysis in circuit simulation tools</li>
+</ul>
+<h2 id="colablink"><a href="https://colab.research.google.com/drive/1Gnqf6nJ7SUzUnyfO8ePysKOdNfTIPay3?usp=sharing">Colablink</a></h2>
+<h2 id="7-analysis-and-efficiency">✅ 7. Analysis and Efficiency</h2>
 <ul>
 <li>Graph reduction steps are efficient and can be automated.</li>
 <li>Works for any <strong>nested</strong> configuration of resistors.</li>
@@ -256,7 +292,7 @@
 with efficient detection of patterns.</li>
 </ul>
 <hr/>
-<h2 id="9-conclusion">✅ 9. Conclusion</h2>
+<h2 id="8-conclusion">✅ 8. Conclusion</h2>
 <p>This graph-based method of simplifying resistor networks:</p>
 <ul>
 <li>Provides a <strong>structured and scalable</strong> solution,</li>
