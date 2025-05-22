@@ -73,7 +73,7 @@ The following plot shows the time measurements for 10 full oscillations ($T_{10}
    - Mean time $\overline{T_{10}} = 19.289\ \text{s}$
    - Standard deviation $\sigma_T = 0.0408\ \text{s}$
    - Uncertainty in mean:  
-     $$\Delta T_{10} = \frac{\sigma_T}{\sqrt{10}} = 0.0129\ \text{s}$$
+  $$\Delta T_{10} = \frac{\sigma_T}{\sqrt{10}} = 0.0129\ \text{s}$$
 
 ---
 
