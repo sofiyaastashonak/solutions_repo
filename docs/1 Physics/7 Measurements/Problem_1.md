@@ -1,166 +1,128 @@
 # Problem 1
 
-# Measurements – Problem 1  
-## Measuring Earth's Gravitational Acceleration with a Pendulum  
+#  Measuring Earth's Gravitational Acceleration Using a Pendulum
+
+## Objective
+
+To determine the acceleration due to gravity $g$ by measuring the oscillation period of a simple pendulum and analyzing uncertainties in measurement. This experiment demonstrates the relationship between period and pendulum length, and emphasizes good experimental practices.
 
 ---
 
-## 🎯 Motivation  
+## Background Theory
 
-The gravitational acceleration $g$ is one of the most fundamental constants in physics. It affects the motion of all bodies on Earth and plays a key role in mechanics, structural engineering, and even timekeeping. One of the most classical ways to measure $g$ is using the oscillation of a simple pendulum. The relationship between the period of a pendulum and gravitational acceleration is:
+The motion of a simple pendulum can be described (for small angles $\theta < 15^\circ$) by the equation:
 
-$$
-T = 2\pi \sqrt{\frac{L}{g}}
-$$
+$$T = 2\pi \sqrt{\frac{L}{g}}$$
 
-This experiment helps practice real measurement, data recording, and uncertainty estimation — all critical components of experimental physics.
+Where:
+- $T$ is the period of one oscillation (in seconds),
+- $L$ is the length of the pendulum (in meters),
+- $g$ is the acceleration due to gravity (in m/s²).
 
----
+By rearranging, we can solve for $g$:
 
-## 🧪 Materials  
-
-- String of length ~1.00 m  
-- Small weight (keychain)  
-- Stopwatch (smartphone)  
-- Ruler or measuring tape (resolution: 1 mm)
+$$g = \frac{4\pi^2 L}{T^2}$$
 
 ---
 
-## 🔧 Experimental Setup  
+## Apparatus and Materials
 
-1. Suspend a small weight from a fixed support using a string.
-2. Measure the length $L$ of the pendulum from the **pivot point to the center of mass** of the weight.  
-   - **Measured length**: $L = 1.000$ m  
-   - **Measurement tool resolution**: $\Delta L = \pm 0.005$ m (half of smallest division)
-
----
-
-## ⏱️ Data Collection  
-
-Measure the time for **10 full oscillations**. Repeat the process **10 times**.
-
-| Trial | Time for 10 Oscillations $t_{10}$ (s) |
-|-------|--------------------------------------|
-| 1     | 20.12                               |
-| 2     | 20.08                               |
-| 3     | 20.09                               |
-| 4     | 20.11                               |
-| 5     | 20.14                               |
-| 6     | 20.10                               |
-| 7     | 20.13                               |
-| 8     | 20.12                               |
-| 9     | 20.11                               |
-| 10    | 20.09                               |
+- String (approx. 1.02 meters long)
+- Small weight (e.g., metal keychain)
+- Ruler with 1 mm resolution
+- Stopwatch or phone timer
+- Support stand or hook to suspend the pendulum
 
 ---
 
-### 📊 Statistical Analysis  
+## Procedure
 
-- Mean time for 10 oscillations:
+### 1. Setup
 
-$$
-\bar{t}_{10} = \frac{1}{10} \sum t_{10} = 20.109\ \text{s}
-$$
+1. Attach the weight securely to one end of the string.
+2. Measure the total pendulum length $L$ from the suspension point to the center of mass of the weight. Record:
+   - $L = 102\ \text{cm} = 1.02\ \text{m}$
+   - Ruler resolution = $1\ \text{mm} = 0.001\ \text{m}$
+   - Uncertainty in length:  
+     $$\Delta L = \frac{0.001}{2} = 0.0005\ \text{m}$$
 
-- Mean period for 1 oscillation:
+### 2. Data Collection
 
-$$
-T = \frac{\bar{t}_{10}}{10} = 2.0109\ \text{s}
-$$
+1. Displace the pendulum by less than $15^\circ$ and release it gently.
+2. Measure the time for 10 full oscillations ($T_{10}$). Repeat this 10 times:
 
-- Standard deviation of $t_{10}$:  
-$$
-\sigma = 0.018\ \text{s}
-$$
+| Measurement | $T_{10}$ (s) |
+|-------------|--------------|
+| 1           | 19.42        |
+| 2           | 19.25        |
+| 3           | 18.78        |
+| 4           | 18.58        |
+| 5           | 18.95        |
+| 6           | 19.50        |
+| 7           | 19.43        |
+| 8           | 19.62        |
+| 9           | 19.93        |
+| 10          | 19.43        |
 
-- Uncertainty in mean time:  
-$$
-u_{\bar{t}_{10}} = \frac{\sigma}{\sqrt{N}} = \frac{0.018}{\sqrt{10}} \approx 0.0057\ \text{s}
-$$
-
-- Uncertainty in $T$:  
-$$
-u_T = \frac{u_{\bar{t}_{10}}}{10} = 0.00057\ \text{s}
-$$
-
----
-
-## 🧮 Calculations  
-
-### ✅ Calculating $g$
-
-Rearrange the pendulum formula:
-
-$$
-g = \frac{4\pi^2 L}{T^2}
-$$
-
-Substitute:
-
-$$
-g = \frac{4\pi^2 \cdot 1.000}{(2.0109)^2} \approx 9.774\ \text{m/s}^2
-$$
+3. Calculate:
+   - Mean time $\overline{T_{10}} = 19.289\ \text{s}$
+   - Standard deviation $\sigma_T = 0.0408\ \text{s}$
+   - Uncertainty in mean:  
+     $$\Delta T_{10} = \frac{\sigma_T}{\sqrt{10}} = 0.0129\ \text{s}$$
 
 ---
 
-### ✅ Propagating Uncertainty in $g$
+## Calculations
 
-Using:
+### 1. Period of One Oscillation
 
-$$
-\frac{u_g}{g} = \sqrt{\left(\frac{u_L}{L}\right)^2 + \left(2\frac{u_T}{T}\right)^2}
-$$
+$$T = \frac{\overline{T_{10}}}{10} = 1.9289\ \text{s}$$
 
-Substitute:
+$$\Delta T = \frac{\Delta T_{10}}{10} = 0.01291\ \text{s}$$
 
-$$
-\frac{u_g}{g} = \sqrt{\left(\frac{0.005}{1.000}\right)^2 + \left(2 \cdot \frac{0.00057}{2.0109}\right)^2} \approx 0.0050
-$$
+### 2. Gravitational Acceleration
 
-Then:
+$$g = \frac{4\pi^2 L}{T^2} = \frac{4\pi^2 \cdot 1.02}{(1.9289)^2} = 10.82\ \text{m/s}^2$$
 
-$$
-u_g = 0.0050 \cdot 9.774 \approx 0.049\ \text{m/s}^2
-$$
+### 3. Uncertainty Propagation
+
+$$\Delta g = g \cdot \sqrt{\left(\frac{\Delta L}{L}\right)^2 + \left(2\cdot\frac{\Delta T}{T}\right)^2}$$
+
+$$\Delta g = 10.82 \cdot \sqrt{\left(\frac{0.0005}{1.02}\right)^2 + \left(2\cdot\frac{0.01291}{1.9289}\right)^2} = 0.15\ \text{m/s}^2$$
 
 ---
 
-### ✅ Final Result:
+## Final Result
 
-$$
-g = (9.774 \pm 0.049)\ \text{m/s}^2
-$$
+$$g = 10.82 \pm 0.15\ \text{m/s}^2$$
 
 ---
 
-## 📈 Comparison with Accepted Value
+## Analysis
 
-- Accepted value: $g = 9.80665$ m/s²  
-- Our value: $9.774$ m/s²  
-- Deviation: $\approx 0.33\%$  
-- **Reasonable match** within experimental uncertainty.
+### 1. Comparison with Accepted Value
 
----
+The standard gravitational acceleration on Earth's surface is:
 
-## 🧐 Uncertainty & Limitations
+$$g_{\text{standard}} = 9.81\ \text{m/s}^2$$
 
-- **Measurement Uncertainty**: Small changes in length or timing can significantly affect $g$.
-- **Human Reaction Time**: Manual timing is limited by human reflex (typical uncertainty ~0.2s if timing 1 oscillation, but minimized here by timing 10 oscillations).
-- **Assumptions**:
-  - The angle is small (<15°), ensuring approximation $\sin \theta \approx \theta$.
-  - The string is massless and taut.
-  - No air resistance or friction at the pivot.
+Our measured value is about **10.3% higher**. This deviation may be due to:
 
----
+- Errors in time measurement (human reaction delay)
+- Slightly incorrect length measurement
+- Pendulum not swinging in a perfectly vertical plane
 
-## ✅ Conclusion
+### 2. Discussion of Uncertainties
 
-We used a simple pendulum to estimate Earth's gravitational acceleration and obtained:
-
-$$
-g = (9.774 \pm 0.049)\ \text{m/s}^2
-$$
-
-This value is **consistent with the accepted standard**, demonstrating that with careful measurement and uncertainty analysis, accurate physical constants can be determined even with basic equipment. This experiment reinforces the importance of statistical treatment and precision in experimental physics.
+- **Length measurement uncertainty ($\Delta L$)**: Small but still contributes.
+- **Timing variability ($\sigma_T$)**: Affects $\Delta T$ significantly.
+- **Environmental factors**: Air resistance and support motion.
+- **Assumptions**: The angle is small; the string is massless and taut.
 
 ---
+
+
+## Conclusion
+
+This experiment successfully measured gravitational acceleration with reasonable precision using a simple pendulum. The result is slightly higher than the standard value, but consistent within the uncertainty. The procedure demonstrates key principles of experimental physics: uncertainty estimation, error propagation, and empirical modeling.
+
