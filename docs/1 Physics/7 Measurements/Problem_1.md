@@ -64,6 +64,11 @@ $$g = \frac{4\pi^2 L}{T^2}$$
 | 9           | 19.93        |
 | 10          | 19.43        |
 
+The following plot shows the time measurements for 10 full oscillations ($T_{10}$):
+
+![alt text](image.png)
+
+
 3. Calculate:
    - Mean time $\overline{T_{10}} = 19.289\ \text{s}$
    - Standard deviation $\sigma_T = 0.0408\ \text{s}$
