@@ -76,40 +76,89 @@ The simplification proceeds by:
 
 ## ✅ 6. Example: Complex Circuit
 
-We use the following network:
 
-- Resistors between: START–A, A–B, B–C, C–END
-- Also additional edges: A–C and B–END
+## 🔹 Step-by-Step Simplification
 
-This graph includes both series and parallel combinations.
+### ✅ Step 1: Initial Circuit
 
-![alt text](image.png) 
-(Shows all nodes and resistors with weights)
+- START–A: 2 Ω  
+- A–B: 3 Ω  
+- A–C: 6 Ω  
+- B–C: 4 Ω  
+- C–END: 5 Ω  
+- B–END: 8 Ω  
 
-![alt text](image-1.png)  
-(Combines those resistors)
+![alt text](image-4.png)
 
-![alt text](image-2.png)
-(Combines A–C paths in parallel with earlier A–C edge)
+---
 
-![alt text](image-3.png) 
-(This edge shows the final equivalent resistance)
+### ✅ Step 2: Combine B–C–END and B–END in Parallel
+
+- B–C = 4 Ω, C–END = 5 Ω → total series: 4 + 5 = **9 Ω**
+- B–END = 8 Ω
+
+Combine in parallel:
+
+$$
+R_{B-END} = \left(\frac{1}{8} + \frac{1}{9}\right)^{-1} = \frac{72}{17} ≈ 4.24\ \Omega
+$$
+
+![alt text](image-5.png)
+
+---
+
+### ✅ Step 3: Combine A–B–END as Series
+
+- A–B = 3 Ω  
+- B–END (parallel result) = 4.24 Ω  
+
+Combined:
+
+$$
+R_{A–END}^{(1)} = 3 + 4.24 = 7.24\ \Omega
+$$
+
+- A–C = 6 Ω  
+- C–END = 5 Ω → A–C–END = 11 Ω
+
+![alt text](image-6.png)
+
+---
+
+### ✅ Step 4: Final Parallel Between A–B–END and A–C–END
+
+Parallel of 7.24 Ω and 11 Ω:
+
+$$
+R_{\text{A–END}} = \left(\frac{1}{7.24} + \frac{1}{11}\right)^{-1} = \frac{79.64}{18.24} ≈ 4.37\ \Omega
+$$
+
+![alt text](image-7.png)
+
+---
+
+### ✅ Final Equivalent Resistance from START
+
+$$
+R_{\text{eq}} = R_{\text{START–A}} + R_{\text{A–END}} = 2 + 4.37 = \boxed{6.37\ \Omega}
+$$
+
+---
+
+## ✅ Summary
+
+- The final equivalent resistance of the circuit is **6.37 Ω**
+- Graph theory allows us to visualize and simplify even complex electrical circuits
+- This method can be extended to automated analysis in circuit simulation tools
+
+
 
 [Colablink](https://colab.research.google.com/drive/1Gnqf6nJ7SUzUnyfO8ePysKOdNfTIPay3?usp=sharing)
 ---
 
-## ✅ 7. Results and Output  
 
-After simplification, the graph is reduced to a single edge between **START** and **END**. The final equivalent resistance is computed and returned.
 
-🧮 **Final Equivalent Resistance**:  
-**Approximately**: 
-
-$$R_{\text{eq}} \approx 4.36\ \Omega$$
-
----
-
-## ✅ 8. Analysis and Efficiency  
+## ✅ 7. Analysis and Efficiency  
 
 - Graph reduction steps are efficient and can be automated.
 - Works for any **nested** configuration of resistors.
@@ -120,7 +169,7 @@ with efficient detection of patterns.
 
 ---
 
-## ✅ 9. Conclusion  
+## ✅ 8. Conclusion  
 
 This graph-based method of simplifying resistor networks:
 
