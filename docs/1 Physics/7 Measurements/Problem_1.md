@@ -44,7 +44,7 @@ $$g = \frac{4\pi^2 L}{T^2}$$
    - $L = 102\ \text{cm} = 1.02\ \text{m}$
    - Ruler resolution = $1\ \text{mm} = 0.001\ \text{m}$
    - Uncertainty in length:  
-     $$\Delta L = \frac{0.001}{2} = 0.0005\ \text{m}$$
+  $$\Delta L = \frac{0.001}{2} = 0.0005\ \text{m}$$
 
 ### 2. Data Collection
 
