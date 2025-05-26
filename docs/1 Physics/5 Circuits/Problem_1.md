@@ -130,7 +130,7 @@ $$
 Parallel of 7.24 Ω and 11 Ω:
 
 $$
-R_{\text{A–END}} = \left(\frac{1}{7.24} + \frac{1}{11}\right)^{-1} = \frac{79.64}{18.24} ≈ 4.37\ \Omega
+R_{\text{A–END}} = \left(\frac{1}{7.24} + \frac{1}{11}\right)^{-1} = \frac{79.64}{18.24} ≈ 4.36\ \Omega
 $$
 
 ![alt text](image-7.png)
