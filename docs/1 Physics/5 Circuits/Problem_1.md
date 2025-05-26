@@ -164,7 +164,9 @@ $$
 - Works for any **nested** configuration of resistors.
 - Algorithm scales well for larger, complex networks.
 - Complexity: approximately 
+
 $$\mathcal{O}(n \log n)$$ 
+
 with efficient detection of patterns.
 
 ---
