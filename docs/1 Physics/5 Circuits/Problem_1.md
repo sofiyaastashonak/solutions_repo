@@ -140,14 +140,14 @@ $$
 ### ✅ Final Equivalent Resistance from START
 
 $$
-R_{\text{eq}} = R_{\text{START–A}} + R_{\text{A–END}} = 2 + 4.37 = \boxed{6.37\ \Omega}
+R_{\text{eq}} = R_{\text{START–A}} + R_{\text{A–END}} = 2 + 4.36 = \boxed{6.36\ \Omega}
 $$
 
 ---
 
 ## ✅ Summary
 
-- The final equivalent resistance of the circuit is **6.37 Ω**
+- The final equivalent resistance of the circuit is **6.36 Ω**
 - Graph theory allows us to visualize and simplify even complex electrical circuits
 - This method can be extended to automated analysis in circuit simulation tools
 
